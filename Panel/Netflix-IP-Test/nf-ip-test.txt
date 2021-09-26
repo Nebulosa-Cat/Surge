@@ -1,0 +1,9 @@
+#!name=Netflix Unlock Check
+#!desc=Netflix IP 可用性測試
+#!system=ios
+
+[Panel]
+nf_check = script-name=nf_check, title="Netflix IP 可用性測試", update-interval=1
+
+[Script]
+nf_check = type=generic,script-path=, timeout=30
