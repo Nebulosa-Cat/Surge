@@ -1,0 +1,9 @@
+#!name=Netflix Unlock Check
+#!desc=Netflix 鎖區測試
+#!system=ios
+
+[Panel]
+nf_check = script-name=nf_check, title="Netflix IP 可用性測試", update-interval=1
+
+[Script]
+nf_check = type=generic,script-path=https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Netflix-IP-Test/nf-check.js, timeout=30
