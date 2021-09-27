@@ -1,54 +1,43 @@
 const BASE_URL = 'https://www.netflix.com/title/'
 
+const FILM_ID = 81215567
 const AREA_TEST_FILM_ID = 80018499
-const ORIGINAL_FILM_ID = 80197526
-const NOT_ORIGINAL_FILM_ID = 70143836
 
 ;(async () => {
-  await test(NOT_ORIGINAL_FILM_ID)
+  let result = {
+    title: 'Netflix 鎖區測試',
+    style: 'error',
+    content: '測試失敗，請檢查網路連線並重新整理',
+  }
+
+  await test(FILM_ID)
     .then((code) => {
-      if (code != 'Not Available') {
-        $done({
-          title: 'Netflix 鎖區測試',
-          style: 'good',
-          content: '目前 IP 可完整收看 Netflix 影劇',
-        })
-        return new Promise(() => {})
+      if (code === 'Not Found') {
+        return test(AREA_TEST_FILM_ID)
       }
-      return test(ORIGINAL_FILM_ID)
+
+      result['style'] = 'good'
+      result['content'] = '目前 IP 可完整收看 Netflix 影劇，解鎖區域：' + code.toUpperCase()
+      return Promise.reject('BreakSignal')
     })
     .then((code) => {
-      if (code != 'Not Available') {
-        $done({
-          title: 'Netflix 鎖區測試',
-          style: 'info',
-          content: '目前 IP 僅支援收看 Netflix 自製劇',
-        })
-        return new Promise(() => {})
+      if (code === 'Not Found') {
+        return Promise.reject('Not Available')
       }
-      return test(AREA_TEST_FILM_ID)
-    })
-    .then((code) => {
-      if (code != 'Not Available') {
-        $done({
-          title: 'Netflix 鎖區測試',
-          style: 'alert',
-          content: '目前 IP 不支援收看鎖強版權的自製劇',
-        })
-      } else {
-        $done({
-          title: 'Netflix 鎖區測試',
-          style: 'error',
-          content: 'Netflix 不為此 IP 提供服務',
-        })
-      }
+
+      result['style'] = 'info'
+      result['content'] = '目前 IP 僅支援收看 Netflix 自製劇，解鎖區域：' + code.toUpperCase()
+      return Promise.reject('BreakSignal')
     })
     .catch((error) => {
-      $done({
-          title: 'Netflix 鎖區測試',
-        style: 'error',
-        content: '測試失敗，請重試',
-      })
+      if (error === 'Not Available') {
+        result['style'] = 'alert'
+        result['content'] = 'Netflix 不為此 IP 提供服務'
+        return
+      }
+    })
+    .finally(() => {
+      $done(result)
     })
 })()
 
@@ -67,19 +56,28 @@ function test(filmId) {
         return
       }
 
-      if (response.status !== 200) {
-        resolve('Not Available')
+      if (response.status === 403) {
+        reject('Not Available')
         return
       }
 
-      let url = response.headers['x-originating-url']
-      let local = url.split('/')[3]
-      if (local == 'title') {
-        local = 'us'
-      } else {
-        local = local.split('-')[0]
+      if (response.status === 404) {
+        resolve('Not Found')
+        return
       }
-      resolve(local)
+
+      if (response.status === 200) {
+        let url = response.headers['x-originating-url']
+        let region = url.split('/')[3]
+        region = region.split('-')[0]
+        if (region == 'title') {
+          region = 'us'
+        }
+        resolve(region)
+        return
+      }
+
+      reject('Error')
     })
   })
 }
