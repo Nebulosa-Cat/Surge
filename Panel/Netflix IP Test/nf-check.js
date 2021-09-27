@@ -17,7 +17,7 @@ const AREA_TEST_FILM_ID = 80018499
       }
 
       result['style'] = 'good'
-      result['content'] = '目前 IP 可完整收看 Netflix 影劇，解鎖區域：' + code.toUpperCase()
+      result['content'] = '目前 IP 可完整收看 Netflix，解鎖區域：' + code.toUpperCase()
       return Promise.reject('BreakSignal')
     })
     .then((code) => {
@@ -26,7 +26,7 @@ const AREA_TEST_FILM_ID = 80018499
       }
 
       result['style'] = 'info'
-      result['content'] = '目前 IP 僅支援收看 Netflix 自製劇，解鎖區域：' + code.toUpperCase()
+      result['content'] = '目前 IP 僅能支援收看自製劇，解鎖區域：' + code.toUpperCase()
       return Promise.reject('BreakSignal')
     })
     .catch((error) => {
