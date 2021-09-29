@@ -6,4 +6,4 @@
 netflixCheck = script-name=netflixCheck,update-interval=1, 
 
 [Script]
-netflixCheck = type=generic,script-path=https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Netflix-IP-Test/netflixCheck.js, timeout=30, argument=icon1=checkmark.shield&color1=#2D6D4B&icon2=exclamationmark.shield&color2=#EFBB24&icon3=xmark.shield&color3=#CB1B45&icon4=xmark.shield&color4=#77428D&title=Netflix IP 鎖測試
+netflixCheck = type=generic,script-path=https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Netflix-IP-Test/netflixCheck.js, timeout=30, argument=icon1=checkmark.shield&color1=#0089A7&icon2=exclamationmark.shield&color2=#EFBB24&icon3=xmark.shield&color3=#CB1B45&icon4=xmark.shield&color4=#77428D&title=Netflix IP 鎖測試
