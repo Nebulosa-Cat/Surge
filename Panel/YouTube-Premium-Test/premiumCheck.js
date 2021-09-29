@@ -3,7 +3,7 @@ const BASE_URL = 'https://www.youtube.com/premium'
 ;(async () => {
   let result = {
     title: 'YouTube Premium 解鎖測試',
-    icon: 'xmark.shield',
+    icon: 'exclamationmark.arrow.triangle.2.circlepath',
     'icon-color':"#77428D",
     content: '測試失敗，請檢查網路狀態',
   }
