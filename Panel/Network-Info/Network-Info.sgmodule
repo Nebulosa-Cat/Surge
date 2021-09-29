@@ -6,4 +6,4 @@
 net-info-panel=title="網路狀態",content="請重新整理",style=info,script-name=net-info-panel, update-interval=1
 
 [Script]
-net-info-panel=script-path=https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Network-Info/networkCheck.js,type=generic,argument=icon1=wifi.circle&color1=#005CAF&icon2=ntenna.radiowaves.left.and.right.circle&color2=#005CAF&icon3=wifi.exclamationmark&color3=#CB1B45
+net-info-panel=script-path=https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Network-Info/networkCheck.js,type=generic
