@@ -16,7 +16,6 @@
              title: "尚未連接網路",
              content: "請檢察網路狀態",
              icon: "wifi.exclamationmark"
-             icon-color: "#CB1B45"
          });
          return;
      }
@@ -32,7 +31,6 @@
              + (wifi.ssid ? `路由器地址：${router}\n` : "")
              + `外部 IP：${externalIP}`,
          icon: wifi.ssid ? "wifi.circle" : "antenna.radiowaves.left.and.right.circle"
-         icon-color: "#005CAF" : "#005CAF"
      };
      $.done(body);
  })();
