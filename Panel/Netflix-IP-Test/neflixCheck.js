@@ -1,3 +1,4 @@
+let params = getParams($argument)
 const BASE_URL = 'https://www.netflix.com/title/'
 
 const FILM_ID = 81215567
@@ -5,8 +6,9 @@ const AREA_TEST_FILM_ID = 80018499
 
 ;(async () => {
   let result = {
-    title: 'Netflix 鎖區測試',
-    style: 'error',
+    title: params.title,
+    icon: params.icon4,
+	  "icon-color":params.color4,
     content: '測試失敗，請檢查網路連線並重新整理',
   }
 
@@ -16,7 +18,8 @@ const AREA_TEST_FILM_ID = 80018499
         return test(AREA_TEST_FILM_ID)
       }
 
-      result['style'] = 'good'
+      result['icon'] = params.icon1
+	    result['icon-color'] = params.color1
       result['content'] = '目前 IP 可完整收看 Netflix 影劇\n解鎖區域：' + code.toUpperCase()
       return Promise.reject('BreakSignal')
     })
@@ -25,13 +28,15 @@ const AREA_TEST_FILM_ID = 80018499
         return Promise.reject('Not Available')
       }
 
-      result['style'] = 'info'
+      result['icon'] = params.icon2
+	    result['icon-color'] = params.color2
       result['content'] = '目前 IP 僅支援收看 Netflix 自製劇\n解鎖區域：' + code.toUpperCase()
       return Promise.reject('BreakSignal')
     })
     .catch((error) => {
       if (error === 'Not Available') {
-        result['style'] = 'alert'
+        result['icon'] = params.icon3
+	      result['icon-color'] = params.color3
         result['content'] = 'Netflix 不為此 IP 提供服務'
         return
       }
@@ -80,4 +85,13 @@ function test(filmId) {
       reject('Error')
     })
   })
+}
+
+function getParams(param) {
+  return Object.fromEntries(
+    $argument
+      .split("&")
+      .map((item) => item.split("="))
+      .map(([k, v]) => [k, decodeURIComponent(v)])
+  );
 }
