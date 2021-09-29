@@ -13,7 +13,7 @@
      // No network connection
      if (!v4IP) {
          $.done({
-             title: "尚未連接網路",
+             title: "尚未連接網際網路",
              content: "請檢察網路狀態後再度測試",
              icon: "wifi.exclamationmark",
              'icon-color': "#CB1B45"
