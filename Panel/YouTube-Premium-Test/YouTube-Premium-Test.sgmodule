@@ -1,0 +1,8 @@
+#!name=YouTube Premium Unlock Check
+#!desc=YouTube Premium 跨區解鎖測試
+
+[Panel]
+YouTube-Premium-Test = script-name=YouTube-Premium-Test, title="YouTube Premium 跨區解鎖測試", update-interval=1
+
+[Script]
+YouTube-Premium-Test = type=generic,script-path=https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/YouTube-Premium-Test/premiumCheck.js, timeout=30
