@@ -3,7 +3,7 @@
 #!system=ios
 
 [Panel]
-neflixCheck = script-name=neflixCheck, title="Netflix IP 可用性測試", update-interval=1
+netflixCheck = script-name=netflixCheck, title="Netflix IP 可用性測試", update-interval=1
 
 [Script]
 neflixCheck = type=generic,script-path=https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Netflix-IP-Test/neflixCheck.js, timeout=30
