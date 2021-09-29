@@ -3,7 +3,7 @@
 #!system=ios
 
 [Panel]
-netflixCheck = script-name=netflixCheck, title="Netflix IP 可用性測試", update-interval=1
+netflixCheck = script-name=netflixCheck, title="Netflix IP 鎖測試", update-interval=1, 
 
 [Script]
-netflixCheck = type=generic,script-path=https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Netflix-IP-Test/netflixCheck.js, timeout=30
+netflixCheck = type=generic,script-path=https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Netflix-IP-Test/netflixCheck.js, timeout=30, argument=icon1=checkmark.circle&color1=#55ba94&icon2=checkmark.circle.trianglebadge.exclamationmark&color2=#9a9ced&icon3=hand.raised.circle&color3=#ea5532&icon4=xmark.shield&color4=#AF52DE
