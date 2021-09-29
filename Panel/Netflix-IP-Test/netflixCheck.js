@@ -9,7 +9,7 @@ const AREA_TEST_FILM_ID = 80018499
     title: params.title,
     icon: params.icon4,
 	  "icon-color":params.color4,
-    content: '測試失敗，請檢查網路連線並重新整理',
+    content: '測試失敗，請檢查網路連線',
   }
 
   await test(FILM_ID)
