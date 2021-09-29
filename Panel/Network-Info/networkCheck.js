@@ -3,6 +3,7 @@
  * 原始作者 @author: Peng-YM
  * 本人僅翻譯為繁體中文自用
  */
+ let params = getParams($argument)
  const $ = API("NetInfoPanel", true);
  const $http = HTTP();
  
@@ -10,13 +11,23 @@
  const v4IP = v4.primaryAddress;
  
  !(async () => {
+    let result = {
+        title: '',
+        icon: params.icon3,
+        "icon-color":params.color3,
+        content: '尚未連接網路\n請檢察網路狀態',
+      }
      // No network connection
      if (!v4IP) {
-         $.done({
-             title: "尚未連接網路",
-             content: "請檢察網路狀態",
-             icon: "wifi.exclamationmark"
-             'icon-color': "#CB1B45"
+         $.result({
+            title: '尚未連接網路',
+            icon: params.icon3,
+            "icon-color":params.color3,
+            content: '請檢察網路狀態',
+             //title: "尚未連接網路",
+             //content: "請檢察網路狀態",
+             //icon: "wifi.exclamationmark"
+             //'icon-color': "#CB1B45"
          });
          return;
      }
@@ -27,12 +38,15 @@
      const externalIP = resp.body;
  
      const body = {
-         title: wifi.ssid || "行動數據",
-         content: `內部 IP：${ip} \n`
-             + (wifi.ssid ? `路由器地址：${router}\n` : "")
-             + `外部 IP：${externalIP}`,
-         icon: wifi.ssid ? "wifi.circle" : "antenna.radiowaves.left.and.right.circle"
-         'icon-color': wifi.ssid ? "#005CAF" : "#005CAF"
+        title: wifi.ssid || "行動數據",
+        icon: wifi.ssid ? params.icon1||params.icon2,
+        "icon-color":params.color1||params.color2,
+        content: `內部 IP：${ip} \n`
+        + (wifi.ssid ? `路由器地址：${router}\n` : "")
+        + `外部 IP：${externalIP}`,
+         //title: wifi.ssid || "行動數據",
+         //icon: wifi.ssid ? "wifi.circle" : "antenna.radiowaves.left.and.right.circle"
+         //'icon-color': wifi.ssid ? "#005CAF" : "#005CAF"
      };
      $.done(body);
  })();
