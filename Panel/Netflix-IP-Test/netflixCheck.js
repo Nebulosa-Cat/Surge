@@ -33,7 +33,7 @@ const AREA_TEST_FILM_ID = 80018499
 	    result['icon-color'] = "#EFBB24"
       //result['icon'] = params.icon2
 	    //result['icon-color'] = params.color2
-      result['content'] = '目前 IP 僅支援收看 Netflix 自製劇\n解鎖區域：' + code.toUpperCase()
+      result['content'] = '目前 IP 僅支援收看 Netflix 自製劇\n解鎖國家：' + code.toUpperCase()
       return Promise.reject('BreakSignal')
     })
     .catch((error) => {
