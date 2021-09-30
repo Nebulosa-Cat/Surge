@@ -18,7 +18,7 @@ if (!ip) {
       'icon-color': '#CB1B45',
     });
   }
-
+else{
   $httpClient.get('http://ip-api.com/json', function (error, response, data) {
     const jsonData = JSON.parse(data);
     $done({
@@ -33,7 +33,7 @@ if (!ip) {
       'icon-color': wifi.ssid ? '#005CAF' : '#F9BF45',
     });
   });
-
+};
 
 function getFlagEmoji(countryCode) {
   const codePoints = countryCode
