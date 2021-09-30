@@ -24,9 +24,10 @@ else{
     $done({
       title: wifi.ssid ? wifi.ssid : '行動數據',
       content:
-        `內部 IP：${ip} \n` +
+        `IP 位址：${ip} \n` +
+        `IPv6 位址 : ${$network.v6.primaryAddress}\n` +
         (wifi.ssid ? `路由器地址：${v4.primaryRouter}\n` : '') +
-        `外部 IP：${jsonData.query}\n` +
+        `節點 IP 位址：${jsonData.query}\n` +
         `節點 ISP : ${jsonData.isp}\n` +
         `節點位置 : ${getFlagEmoji(jsonData.countryCode)} ${jsonData.country} | ${jsonData.city}`,
       icon: wifi.ssid ? 'wifi' : 'simcard',
