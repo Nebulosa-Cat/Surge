@@ -9,16 +9,14 @@
 const { wifi, v4 } = $network;
 const ip = v4.primaryAddress;
 
-(async () => {
-  // No network connection
-  if (!ip) {
+// No network connection
+if (!ip) {
     $done({
       title: 'Network Info Panel',
       content: '尚未連接網際網路\n請檢查網際網路狀態後再度測試',
       icon: 'wifi.exclamationmark',
       'icon-color': '#CB1B45',
     });
-    return;
   }
 
   $httpClient.get('http://ip-api.com/json', function (error, response, data) {
@@ -34,9 +32,8 @@ const ip = v4.primaryAddress;
       icon: wifi.ssid ? 'wifi' : 'simcard',
       'icon-color': wifi.ssid ? '#005CAF' : '#F9BF45',
     });
-    return;
   });
-})();
+
 
 function getFlagEmoji(countryCode) {
   const codePoints = countryCode
