@@ -25,11 +25,11 @@ else{
       content:
         (v4.primaryAddress ? `IP 位址：${v4.primaryAddress} \n` : '') +
         (v6.primaryAddress ? `IPv6 位址 : ${v6.primaryAddress}\n`: '') +
-        (wifi.ssid ? `Router v4 : ${v4.primaryRouter}\n` : '') +
-        (wifi.ssid ? `Router v6 : ${v6.primaryRouter}\n` : '') +
+        (v4.primaryRouter ? `Router v4 : ${v4.primaryRouter}\n` : '') +
+        (v6.primaryRouter ? `Router v6 : ${v6.primaryRouter}\n` : '') +
         `節點 IP 位址 : ${jsonData.query}\n` +
         `節點 ISP : ${jsonData.isp}\n` +
-        `節點位置 : ${getFlagEmoji(jsonData.countryCode)} ${jsonData.country} | ${jsonData.city}`,
+        `節點位置 : ${getFlagEmoji(jsonData.countryCode)} | ${jsonData.country} - ${jsonData.city}`,
       icon: wifi.ssid ? 'wifi' : 'simcard',
       'icon-color': wifi.ssid ? '#005CAF' : '#F9BF45',
     });
