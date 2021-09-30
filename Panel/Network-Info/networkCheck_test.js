@@ -17,8 +17,6 @@
             icon: "wifi.exclamationmark",
             'icon-color': "#CB1B45"
         }
-        $done(result)
-        return
     }
     const ip = v4IP;
     const router = wifi.ssid ? v4.primaryRouter : undefined;
