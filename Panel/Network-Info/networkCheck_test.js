@@ -9,7 +9,7 @@
 const { wifi, v4, v6 } = $network;
 
 // No network connection
-if (!ip) {
+if (!v4.primaryAddress) {
     $done({
       title: 'Network Info Panel',
       content: '尚未連接網際網路\n請檢查網際網路狀態後再度測試',
