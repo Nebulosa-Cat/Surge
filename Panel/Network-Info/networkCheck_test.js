@@ -6,11 +6,11 @@
  * 並且感謝Pysta大老、野比大佬(@NobyDa)、皮樂大佬(@Hiraku)技術支援
  * 以及鴿子大老(@zZPiglet)精簡化code
  */
- const { wifi, v4 } = $network;
- const v4IP = v4.primaryAddress;
- let url = "http://ip-api.com/json"
+const { wifi, v4 } = $network;
+const v4IP = v4.primaryAddress;
+let url = "http://ip-api.com/json"
 
- ;(async () => {
+;(async () => {
     let result ={
         title: "Network Info Panel",
         content: "尚未連接網際網路\n請檢察網際網路狀態後再度測試",
@@ -39,7 +39,7 @@
         $done(result)
     })
 }
- })()
+})()
  
  function getFlagEmoji(countryCode) {
     const codePoints = countryCode
