@@ -20,7 +20,7 @@
         result['Title'] = "Network Info Panel"
         result['content'] = "尚未連接網際網路\n請檢察網際網路狀態後再度測試"
         result['icon'] = "wifi.exclamationmark"
-        result['icon-color'] = "wifi.exclamationmark"
+        result['icon-color'] = "#CB1B45"
         $done(result)
         return
     }
