@@ -6,8 +6,7 @@
 * 並且感謝Pysta大佬、野比大佬(@NobyDa)、皮樂大佬(@Hiraku)技術支援
 * 以及鴿子大佬(@zZPiglet)精簡化code
 */
-const { wifi, v4 } = $network;
-const ip = v4.primaryAddress;
+const { wifi, v4, v6 } = $network;
 
 // No network connection
 if (!ip) {
@@ -24,9 +23,10 @@ else{
     $done({
       title: wifi.ssid ? wifi.ssid : '行動數據',
       content:
-        `IP 位址：${ip} \n` +
-        (wifi.ssid ? `IPv6 位址 :\n ${$network.v6.primaryRouter}\n` : `IPv6 位址 :\n ${$network.v6.primaryAddress}\n`) +
-        (wifi.ssid ? `路由器地址 : ${v4.primaryRouter}\n` : '') +
+        `IP 位址：${v4.primaryAddress} \n` +
+        (wifi.ssid ? '' : `IPv6 位址 :\n ${v6.primaryAddress}\n`) +
+        (wifi.ssid ? `Router v4 : ${v4.primaryRouter}\n` : `IPv6 位址 :\n ${v6.primaryAddress}\n`) +
+        (wifi.ssid ? `Router v6 : ${v6.primaryRouter}\n` : '') +
         `節點 IP 位址 : ${jsonData.query}\n` +
         `節點 ISP : ${jsonData.isp}\n` +
         `節點位置 : ${getFlagEmoji(jsonData.countryCode)} ${jsonData.country} | ${jsonData.city}`,
