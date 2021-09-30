@@ -2,6 +2,7 @@
  * Surge 網路詳情面板
  * 原始作者 @author: Peng-YM
  * 本人僅翻譯為繁體中文自用
+ * 並與另一位 @聰聰 大的節點資訊面板進行整合
  */
  const $ = API("NetInfoPanel", true);
  const $http = HTTP();
@@ -36,9 +37,9 @@
         content: `內部 IP：${ip} \n`
             + (wifi.ssid ? `路由器地址：${router}\n` : "")
             + (wifi.ssid ? `外部 IP：${externalIP}\n` : `外部 IP：${externalIP}\n`)
-            + (wifi.ssid ? `節點 ISP: ${isp}\n` : `節點 ISP: ${isp}\n`)
-            + (wifi.ssid ? `節點位置: ${emoji}${country} | ${city}` : `節點位置: ${emoji}${country} | ${city}`),
-        icon: wifi.ssid ? "wifi.circle" : "antenna.radiowaves.left.and.right.circle",
+            + (wifi.ssid ? `節點 ISP : ${isp}\n` : `節點 ISP : ${isp}\n`)
+            + (wifi.ssid ? `節點位置 : ${emoji} ${country} | ${city}` : `節點位置 : ${emoji} ${country} | ${city}`),
+        icon: wifi.ssid ? "wifi" : "simcard",
         'icon-color': wifi.ssid ? "#005CAF" : "#005CAF"
         };
         $.done(body);
