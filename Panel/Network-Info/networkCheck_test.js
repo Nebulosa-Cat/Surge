@@ -29,11 +29,11 @@
         let city = jsonData.city
         let isp = jsonData.isp
         result['title'] =  wifi.ssid ? wifi.ssid : "行動數據"
-        result['content'] = (wifi.ssid ? 內部 IP：${v4IP} \n : `內部 IP：${v4IP} \n`)
-                            + (wifi.ssid ? 路由器地址：${v4.primaryRouter}\n : "")
-                            + (wifi.ssid ? 外部 IP：${externalIP}\n : `外部 IP：${externalIP}\n`)
-                            + (wifi.ssid ? 節點 ISP : ${isp}\n : `節點 ISP : ${isp}\n`)
-                            + (wifi.ssid ? 節點位置 : ${emoji} ${country} | ${city} : `節點位置 : ${emoji} ${country} | ${city}`)
+        result['content'] = (wifi.ssid ? `內部 IP：${v4IP} \n` : `內部 IP：${v4IP} \n`)
+                            + (wifi.ssid ? `路由器地址：${v4.primaryRouter}\n` : "")
+                            + (wifi.ssid ? `外部 IP：${externalIP}\n` : `外部 IP：${externalIP}\n`)
+                            + (wifi.ssid ? `節點 ISP : ${isp}\n` : `節點 ISP : ${isp}\n`)
+                            + (wifi.ssid ? `節點位置 : ${emoji} ${country} | ${city}` : `節點位置 : ${emoji} ${country} | ${city}`)
         result['icon'] = wifi.ssid ? "wifi" : "simcard"
         result['icon-color'] = wifi.ssid ? "#005CAF" : "#F9BF45"
         $done(result)
