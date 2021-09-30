@@ -21,7 +21,7 @@
         result['content'] = "尚未連接網際網路\n請檢察網際網路狀態後再度測試"
         result['icon'] = "wifi.exclamationmark"
         result['icon-color'] = "wifi.exclamationmark"
-        return;
+        return
     }
     const ip = v4IP;
     const router = wifi.ssid ? v4.primaryRouter : undefined;
@@ -41,8 +41,11 @@
                             + (wifi.ssid ? `節點位置 : ${emoji} ${country} | ${city}` : `節點位置 : ${emoji} ${country} | ${city}`)
         result['icon'] = wifi.ssid ? "wifi" : "simcard"
         result['icon-color'] = wifi.ssid ? "#005CAF" : "#F9BF45"
-    });
- })();
+    })
+    .finally(() => {
+        $done(result)
+      })
+ })()
  
  function getFlagEmoji(countryCode) {
     const codePoints = countryCode
