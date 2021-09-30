@@ -4,24 +4,23 @@
  * 本人僅翻譯為繁體中文自用
  * 並與另一位 @聰聰 大的節點資訊面板進行整合
  */
+ const $ = API("NetInfoPanel", true);
+ const $http = HTTP();
+ 
  const { wifi, v4 } = $network;
  const v4IP = v4.primaryAddress;
  let url = "http://ip-api.com/json"
 
- ;(async () => {
-     let result ={
-         title: "Network Info Panel",
-         content: "尚未連接網際網路\n請檢察網際網路狀態後再度測試",
-         icon: "wifi.exclamationmark",
-         'icon-color': "#CB1B45"
-     }
+ !(async () => {
      // No network connection
      if (!v4IP) {
-        result['Title'] = "Network Info Panel"
-        result['content'] = "尚未連接網際網路\n請檢察網際網路狀態後再度測試"
-        result['icon'] = "wifi.exclamationmark"
-        result['icon-color'] = "wifi.exclamationmark"
-        return
+         $.done({
+             title: "尚未連接網際網路",
+             content: "請檢察網路狀態後再度測試",
+             icon: "wifi.exclamationmark",
+             'icon-color': "#CB1B45"
+         });
+         return;
     }
     const ip = v4IP;
     const router = wifi.ssid ? v4.primaryRouter : undefined;
@@ -33,18 +32,19 @@
         let emoji = getFlagEmoji(jsonData.countryCode)
         let city = jsonData.city
         let isp = jsonData.isp
-        result['Title'] =  wifi.ssid ? wifi.ssid : "行動數據"
-        result['content'] = (wifi.ssid ? `內部 IP：${ip} \n` : `內部 IP：${ip} \n`)
-                            + (wifi.ssid ? `路由器地址：${router}\n` : "")
-                            + (wifi.ssid ? `外部 IP：${externalIP}\n` : `外部 IP：${externalIP}\n`)
-                            + (wifi.ssid ? `節點 ISP : ${isp}\n` : `節點 ISP : ${isp}\n`)
-                            + (wifi.ssid ? `節點位置 : ${emoji} ${country} | ${city}` : `節點位置 : ${emoji} ${country} | ${city}`)
-        result['icon'] = wifi.ssid ? "wifi" : "simcard"
-        result['icon-color'] = wifi.ssid ? "#005CAF" : "#F9BF45"
-        return
-    })
-    $done(result)
- })()
+        const body = {
+        title: wifi.ssid || "行動數據",
+        content: `內部 IP：${ip} \n`
+                + (wifi.ssid ? `路由器地址：${router}\n` : "")
+                + (wifi.ssid ? `外部 IP：${externalIP}\n` : `外部 IP：${externalIP}\n`)
+                + (wifi.ssid ? `節點 ISP : ${isp}\n` : `節點 ISP : ${isp}\n`)
+                + (wifi.ssid ? `節點位置 : ${emoji} ${country} | ${city}` : `節點位置 : ${emoji} ${country} | ${city}`),
+        icon: wifi.ssid ? "wifi" : "simcard",
+        'icon-color': wifi.ssid ? "#005CAF" : "#F9BF45"
+        };
+        $.done(body);
+    });
+ })();
  
  function getFlagEmoji(countryCode) {
     const codePoints = countryCode
