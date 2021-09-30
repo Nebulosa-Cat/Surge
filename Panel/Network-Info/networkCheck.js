@@ -8,7 +8,8 @@
  
  const { wifi, v4 } = $network;
  const v4IP = v4.primaryAddress;
- 
+ let url = "http://ip-api.com/json"
+
  !(async () => {
      // No network connection
      if (!v4IP) {
@@ -22,7 +23,8 @@
      }
     const ip = v4IP;
     const router = wifi.ssid ? v4.primaryRouter : undefined;
- 
+    
+    const resp = await $http.get("http://ip-api.com/json");
     let jsonData = JSON.parse(data)
     let externalIP = jsonData.query
     let country = jsonData.country
