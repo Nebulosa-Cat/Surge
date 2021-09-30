@@ -25,7 +25,7 @@ else{
       title: wifi.ssid ? wifi.ssid : '行動數據',
       content:
         `IP 位址：${ip} \n` +
-        (wifi.ssid ? `IPv6 位址 : ${$network.v6.primaryAddress}\n` : `IPv6 位址 : ${$network.v6.primaryAddress}\n` +
+        (wifi.ssid ? `IPv6 位址 :\n ${$network.v6.primaryAddress}\n` : `IPv6 位址 :\n ${$network.v6.primaryAddress}\n` +
         (wifi.ssid ? `路由器地址：${v4.primaryRouter}\n` : '') +
         `節點 IP 位址：${jsonData.query}\n` +
         `節點 ISP : ${jsonData.isp}\n` +
