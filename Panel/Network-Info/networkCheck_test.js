@@ -45,8 +45,6 @@
         $done(result)
         return
     })
-    $done(result)
-    return
  })()
  
  function getFlagEmoji(countryCode) {
