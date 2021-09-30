@@ -9,7 +9,7 @@
 const { wifi, v4, v6 } = $network;
 
 // No network connection
-if (!v4.primaryAddress) {
+if (!v4.primaryAddress && !v6.primaryAddress) {
     $done({
       title: 'Network Info Panel',
       content: '尚未連接網際網路\n請檢查網際網路狀態後再度測試',
@@ -24,8 +24,8 @@ else{
       title: wifi.ssid ? wifi.ssid : '行動數據',
       content:
         `IP 位址：${v4.primaryAddress} \n` +
-        (wifi.ssid ? '' : `IPv6 位址 :\n ${v6.primaryAddress}\n`) +
-        (wifi.ssid ? `Router v4 : ${v4.primaryRouter}\n` : `IPv6 位址 :\n ${v6.primaryAddress}\n`) +
+        (wifi.ssid ? '' : `IPv6 位址 : ${v6.primaryAddress}\n`) +
+        (wifi.ssid ? `Router v4 : ${v4.primaryRouter}\n` : '') +
         (wifi.ssid ? `Router v6 : ${v6.primaryRouter}\n` : '') +
         `節點 IP 位址 : ${jsonData.query}\n` +
         `節點 ISP : ${jsonData.isp}\n` +
