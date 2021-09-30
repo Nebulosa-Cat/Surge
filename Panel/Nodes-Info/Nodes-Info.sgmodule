@@ -1,0 +1,9 @@
+#!name=Nodes Info Panel
+#!desc=VPN 伺服器節點詳情面板
+#!system=ios
+
+[Panel]
+nodes-info-panel=title="VPN 節點資訊",content="請重新整理",style=info,script-name=nodes-info-panel, update-interval=1
+
+[Script]
+nodes-info-panel=script-path=https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Nodes-Info/nodesCheck.js,type=generic
