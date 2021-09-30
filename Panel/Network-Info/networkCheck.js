@@ -8,7 +8,7 @@
  const v4IP = v4.primaryAddress;
  let url = "http://ip-api.com/json"
 
- !(async () => {
+ ;(async () => {
      let result ={
          title: "Network Info Panel",
          content: "尚未連接網際網路\n請檢察網際網路狀態後再度測試",
