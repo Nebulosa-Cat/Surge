@@ -17,7 +17,7 @@
     }
     // No network connection
     if (!v4IP) {
-        result['Title'] = "Network Info Panel"
+        result['title'] = "Network Info Panel"
         result['content'] = "尚未連接網際網路\n請檢察網際網路狀態後再度測試"
         result['icon'] = "wifi.exclamationmark"
         result['icon-color'] = "#CB1B45"
@@ -34,7 +34,7 @@
         let emoji = getFlagEmoji(jsonData.countryCode)
         let city = jsonData.city
         let isp = jsonData.isp
-        result['Title'] =  wifi.ssid ? wifi.ssid : "行動數據"
+        result['title'] =  wifi.ssid ? wifi.ssid : "行動數據"
         result['content'] = (wifi.ssid ? `內部 IP：${ip} \n` : `內部 IP：${ip} \n`)
                             + (wifi.ssid ? `路由器地址：${router}\n` : "")
                             + (wifi.ssid ? `外部 IP：${externalIP}\n` : `外部 IP：${externalIP}\n`)
