@@ -41,6 +41,7 @@
                             + (wifi.ssid ? `節點位置 : ${emoji} ${country} | ${city}` : `節點位置 : ${emoji} ${country} | ${city}`)
         result['icon'] = wifi.ssid ? "wifi" : "simcard"
         result['icon-color'] = wifi.ssid ? "#005CAF" : "#F9BF45"
+        return
     })
     $done(result)
  })()
