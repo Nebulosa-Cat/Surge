@@ -42,9 +42,7 @@
         result['icon'] = wifi.ssid ? "wifi" : "simcard"
         result['icon-color'] = wifi.ssid ? "#005CAF" : "#F9BF45"
     })
-    .finally(() => {
-        $done(result)
-      })
+    $done(result)
  })()
  
  function getFlagEmoji(countryCode) {
