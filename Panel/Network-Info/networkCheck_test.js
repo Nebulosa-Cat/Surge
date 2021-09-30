@@ -24,7 +24,7 @@ else{
       title: wifi.ssid ? wifi.ssid : '行動數據',
       content:
         `IP 位址：${v4.primaryAddress} \n` +
-        (wifi.ssid ? '' : `IPv6 位址 : ${v6.primaryAddress}\n`) +
+        `IPv6 位址 : ${v6.primaryAddress}\n` +
         (wifi.ssid ? `Router v4 : ${v4.primaryRouter}\n` : '') +
         (wifi.ssid ? `Router v6 : ${v6.primaryRouter}\n` : '') +
         `節點 IP 位址 : ${jsonData.query}\n` +
