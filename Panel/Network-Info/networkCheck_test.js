@@ -11,7 +11,7 @@ const { wifi, v4, v6 } = $network;
 // No network connection
 if (!v4.primaryAddress && !v6.primaryAddress) {
     $done({
-      title: 'Network Info Panel',
+      title: '沒有網路',
       content: '尚未連接網際網路\n請檢查網際網路狀態後再度測試',
       icon: 'wifi.exclamationmark',
       'icon-color': '#CB1B45',
