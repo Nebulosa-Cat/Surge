@@ -11,14 +11,14 @@
  ;(async () => {
     let result ={
         title: "Network Info Panel",
-        content: "尚未連接網際網路\n請檢察網際網路狀態後再度測試",
+        content: "尚未連接網際網路\n請檢查網際網路狀態後再度測試",
         icon: "wifi.exclamationmark",
         'icon-color': "#CB1B45"
     }
     // No network connection
     if (!v4IP) {
         result['title'] = "Network Info Panel"
-        result['content'] = "尚未連接網際網路\n請檢察網際網路狀態後再度測試"
+        result['content'] = "尚未連接網際網路\n請檢查網際網路狀態後再度測試"
         result['icon'] = "wifi.exclamationmark"
         result['icon-color'] = "#CB1B45"
         $done(result)
