@@ -1,0 +1,9 @@
+#!name=Network Info Panel
+#!desc=網路詳情面板 @Nebulosa-Cat
+#!system=ios
+
+[Panel]
+net-info-panel=title="網路狀態",content="請重新整理",style=info,script-name=net-info-panel, update-interval=1
+
+[Script]
+net-info-panel=script-path=https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Network-Info/networkCheck_test,type=generic
