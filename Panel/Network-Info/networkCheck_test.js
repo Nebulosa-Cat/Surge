@@ -9,40 +9,44 @@
  let url = "http://ip-api.com/json"
 
  ;(async () => {
+    let result ={
+        title: "Network Info Panel",
+        content: "尚未連接網際網路\n請檢察網際網路狀態後再度測試",
+        icon: "wifi.exclamationmark",
+        'icon-color': "#CB1B45"
+    }
     // No network connection
     if (!v4IP) {
-        let result ={
-            title: "Network Info Panel",
-            content: "尚未連接網際網路\n請檢察網際網路狀態後再度測試",
-            icon: "wifi.exclamationmark",
-            'icon-color': "#CB1B45"
-        }
+        result['Title'] = "Network Info Panel"
+        result['content'] = "尚未連接網際網路\n請檢察網際網路狀態後再度測試"
+        result['icon'] = "wifi.exclamationmark"
+        result['icon-color'] = "wifi.exclamationmark"
         $done(result)
         return
     }
-    else{
-        const ip = v4IP;
-        const router = wifi.ssid ? v4.primaryRouter : undefined;
-        
-        $httpClient.get(url, function(error, response, data){
-            let jsonData = JSON.parse(data)
-            let externalIP = jsonData.query
-            let country = jsonData.country
-            let emoji = getFlagEmoji(jsonData.countryCode)
-            let city = jsonData.city
-            let isp = jsonData.isp
-            result['Title'] =  wifi.ssid ? wifi.ssid : "行動數據"
-            result['content'] = (wifi.ssid ? `內部 IP：${ip} \n` : `內部 IP：${ip} \n`)
-                                + (wifi.ssid ? `路由器地址：${router}\n` : "")
-                                + (wifi.ssid ? `外部 IP：${externalIP}\n` : `外部 IP：${externalIP}\n`)
-                                + (wifi.ssid ? `節點 ISP : ${isp}\n` : `節點 ISP : ${isp}\n`)
-                                + (wifi.ssid ? `節點位置 : ${emoji} ${country} | ${city}` : `節點位置 : ${emoji} ${country} | ${city}`)
-            result['icon'] = wifi.ssid ? "wifi" : "simcard"
-            result['icon-color'] = wifi.ssid ? "#005CAF" : "#F9BF45"
-            $done(result)
-            return
-        })
-    }
+    const ip = v4IP;
+    const router = wifi.ssid ? v4.primaryRouter : undefined;
+    
+    $httpClient.get(url, function(error, response, data){
+        let jsonData = JSON.parse(data)
+        let externalIP = jsonData.query
+        let country = jsonData.country
+        let emoji = getFlagEmoji(jsonData.countryCode)
+        let city = jsonData.city
+        let isp = jsonData.isp
+        result['Title'] =  wifi.ssid ? wifi.ssid : "行動數據"
+        result['content'] = (wifi.ssid ? `內部 IP：${ip} \n` : `內部 IP：${ip} \n`)
+                            + (wifi.ssid ? `路由器地址：${router}\n` : "")
+                            + (wifi.ssid ? `外部 IP：${externalIP}\n` : `外部 IP：${externalIP}\n`)
+                            + (wifi.ssid ? `節點 ISP : ${isp}\n` : `節點 ISP : ${isp}\n`)
+                            + (wifi.ssid ? `節點位置 : ${emoji} ${country} | ${city}` : `節點位置 : ${emoji} ${country} | ${city}`)
+        result['icon'] = wifi.ssid ? "wifi" : "simcard"
+        result['icon-color'] = wifi.ssid ? "#005CAF" : "#F9BF45"
+        $done(result)
+        return
+    })
+    $done(result)
+    return
  })()
  
  function getFlagEmoji(countryCode) {
