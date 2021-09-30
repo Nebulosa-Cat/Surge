@@ -20,19 +20,18 @@
              'icon-color': "#CB1B45"
          });
          return;
-     }
+    }
     const ip = v4IP;
     const router = wifi.ssid ? v4.primaryRouter : undefined;
     
-    const resp = await $http.get("http://ip-api.com/json");
-    let jsonData = JSON.parse(data)
-    let externalIP = jsonData.query
-    let country = jsonData.country
-    let emoji = getFlagEmoji(jsonData.countryCode)
-    let city = jsonData.city
-    let isp = jsonData.isp
-
-    const body = {
+    $httpClient.get(url, function(error, response, data){
+        let jsonData = JSON.parse(data)
+        let externalIP = jsonData.query
+        let country = jsonData.country
+        let emoji = getFlagEmoji(jsonData.countryCode)
+        let city = jsonData.city
+        let isp = jsonData.isp
+        const body = {
         title: wifi.ssid || "行動數據",
         content: `內部 IP：${ip} \n`
             + (wifi.ssid ? `路由器地址：${router}\n` : "")
@@ -41,8 +40,9 @@
             + (wifi.ssid ? `節點位置: ${emoji}${country} | ${city}` : "`節點位置: ${emoji}${country} | ${city}`"),
         icon: wifi.ssid ? "wifi.circle" : "antenna.radiowaves.left.and.right.circle",
         'icon-color': wifi.ssid ? "#005CAF" : "#005CAF"
-     };
-     $.done(body);
+        };
+        $.done(body);
+    });
  })();
  
  function getFlagEmoji(countryCode) {
