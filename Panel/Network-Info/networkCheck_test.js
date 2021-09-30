@@ -7,6 +7,7 @@
 * 以及鴿子大佬(@zZPiglet)精簡化code
 */
 const { wifi, v4, v6 } = $network;
+let originalISPName = '';
 
 // No network connection
 if (!v4.primaryAddress && !v6.primaryAddress) {
@@ -21,7 +22,7 @@ else{
   $httpClient.get('http://ip-api.com/json', function (error, response, data) {
     const jsonData = JSON.parse(data);
     $done({
-      title: wifi.ssid ? wifi.ssid : '行動數據',
+      title: wifi.ssid ? wifi.ssid : originalISPName,
       content:
         (v4.primaryAddress ? `IPv4 : ${v4.primaryAddress} \n` : '') +
         (v6.primaryAddress ? `IPv6 : ${v6.primaryAddress}\n`: '') +
@@ -43,3 +44,11 @@ function getFlagEmoji(countryCode) {
     .map((char) => 127397 + char.charCodeAt());
   return String.fromCodePoint(...codePoints);
 }
+
+$httpClient.get('http://ip-api.com/json/fields=status,isp', function (error, response, ispData) {
+  const originalISP = JSON.parse(ispData);
+  if (originalISP.isp === EMOME){
+    let originalISPName = '中華電信'
+    return
+  }
+})
