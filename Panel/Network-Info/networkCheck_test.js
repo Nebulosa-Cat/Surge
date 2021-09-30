@@ -49,6 +49,5 @@ $httpClient.get('http://ip-api.com/json/fields=status,isp', function (error, res
   const originalISP = JSON.parse(ispData);
   if (originalISP.isp === EMOME){
     let originalISPName = '中華電信'
-    return
   }
-})
+});
