@@ -7,7 +7,6 @@
  * 以及鴿子大佬(@zZPiglet)精簡化code
  */
 const { wifi, v4, v6 } = $network;
-let radio = $network["cellular-data"].radio;
 
 let carrierName = '';
 const carrierMap = {
@@ -51,6 +50,7 @@ function getNetworkInfo() {
     }
 
     const info = JSON.parse(data);
+    let radio = $network["cellular-data"].radio;
     $done({
       title: wifi.ssid ? wifi.ssid : '行動數據' + carrierName,
       content:
