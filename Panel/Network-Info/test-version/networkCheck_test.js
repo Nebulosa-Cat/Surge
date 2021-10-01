@@ -53,6 +53,7 @@ function getNetworkInfo() {
     $done({
       title: wifi.ssid ? wifi.ssid : '行動數據' + carrierName,
       content:
+        (wifi.ssid ? '' : `Radio : ${network["cellular-data"].radio} \n`)+
         (v4.primaryAddress ? `IPv4 : ${v4.primaryAddress} \n` : '') +
         (v6.primaryAddress ? `IPv6 : ${v6.primaryAddress}\n` : '') +
         (v4.primaryRouter && wifi.ssid
