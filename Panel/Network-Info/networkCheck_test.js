@@ -38,16 +38,6 @@ if (!v4.primaryAddress && !v6.primaryAddress) {
   }
 }
 
-function getAsn() {
-  $httpClient.get('https://ipapi.co/asn', function (error, response, data) {
-    if (error) {
-      return;
-    }
-    carrierName = carrierMap[data] ? ' - ' + carrierMap[data] : '';
-    console.log(data, carrierName);
-  });
-}
-
 function getNetworkInfo() {
   $httpClient.get('http://ip-api.com/json', function (error, response, data) {
     if (error) {
