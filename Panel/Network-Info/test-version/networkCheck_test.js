@@ -7,6 +7,7 @@
  * 以及鴿子大佬(@zZPiglet)精簡化code
  */
 const { wifi, v4, v6 } = $network;
+let radio = $network["cellular-data"].radio;
 
 let carrierName = '';
 const carrierMap = {
@@ -53,7 +54,7 @@ function getNetworkInfo() {
     $done({
       title: wifi.ssid ? wifi.ssid : '行動數據' + carrierName,
       content:
-        (wifi.ssid ? '' : `Radio : ${$network["cellular-data"].radio} \n`)+
+        (wifi.ssid ? '' : `Radio : ${radio} \n`)+
         (v4.primaryAddress ? `IPv4 : ${v4.primaryAddress} \n` : '') +
         (v6.primaryAddress ? `IPv6 : ${v6.primaryAddress}\n` : '') +
         (v4.primaryRouter && wifi.ssid
