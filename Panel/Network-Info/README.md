@@ -9,6 +9,11 @@
 ### 模組安裝連結
 正式版 : https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Network-Info/Network-Info.sgmodule<br>
 測試版 : https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Network-Info/test-version/Network-Info_test.sgmodule
+
+# 注意事項
+1. 電信業者顯示功能是於腳本內設定 surge 直連規則至 https://ipapi.co/asn ，如有隱私或安全上疑慮請自行修改模組內容禁用此項功能
+2. 電信業者顯示目前僅有台灣電信業者資料，歡迎用補充其他電信業者資料
+
 # 共同作者
 ### @hirakujira `code 重構以及電信業者顯示功能編寫`
 # Special thanks to
