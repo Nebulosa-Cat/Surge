@@ -9,12 +9,14 @@
 const { wifi, v4, v6 } = $network;
 
 let carrierName = '';
-const carrierMap = {
-  AS17421: '中華電信',
-  AS9674: '遠傳電信',
-  AS24158: '台灣大哥大',
-  AS24157: '台灣之星',
-  AS24154: '亞太電信',
+const carrierNames = {
+  '466-11': '中華電信',
+  '466-92': '中華電信',
+  '466-01': '遠傳電信',
+  '466-03': '遠傳電信',
+  '466-97': '台灣大哥大',
+  '466-89': '台灣之星',
+  '466-05': '亞太電信',
 };
 
 if (!v4.primaryAddress && !v6.primaryAddress) {
@@ -25,20 +27,13 @@ if (!v4.primaryAddress && !v6.primaryAddress) {
     'icon-color': '#CB1B45',
   });
 } else {
-  if (!wifi.ssid) {
-    $httpClient.get('https://ipapi.co/asn', function (error, response, data) {
-      if (error) {
-        return;
-      }
-      carrierName = carrierMap[data] ? ' - ' + carrierMap[data] : '';
-      getNetworkInfo();
-    });
-  } else {
-    getNetworkInfo();
+  if ($network['cellular-data']) {
+    const carrierId = $network['cellular-data'].carrier;
+    const radio = $network['cellular-data'].radio;
+    if (carrierId && radio) {
+      carrierName = carrierNames[carrierId] ? ' - ' + carrierNames[carrierId] + ' ' + radio : ' - ' + radio;
+    }
   }
-}
-
-function getNetworkInfo() {
   $httpClient.get('http://ip-api.com/json', function (error, response, data) {
     if (error) {
       $done({
@@ -48,13 +43,11 @@ function getNetworkInfo() {
         'icon-color': '#CB1B45',
       });
     }
-
+    console.log($network);
     const info = JSON.parse(data);
-    let radio = $network["cellular-data"].radio;
     $done({
       title: wifi.ssid ? wifi.ssid : '行動數據' + carrierName,
       content:
-        (wifi.ssid ? '' : `Radio : ${radio} \n`)+
         (v4.primaryAddress ? `IPv4 : ${v4.primaryAddress} \n` : '') +
         (v6.primaryAddress ? `IPv6 : ${v6.primaryAddress}\n` : '') +
         (v4.primaryRouter && wifi.ssid
