@@ -11,8 +11,8 @@
 測試版 : https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Network-Info/test-version/Network-Info_test.sgmodule
 
 # 注意事項
-1. 電信業者顯示功能改使用 $network 實現，透過 MCN 代碼進行查錶，不再透過直連 API 網站以提高隱私性
-2. 電信業者顯示目前僅有台灣電信業者資料，歡迎用補充其他電信業者資料 (MNC 代碼)
+1. 電信業者顯示功能改使用 $network 實現，透過 MCC/MCN 代碼進行查錶，不再透過直連 API 網站以提高隱私性
+2. 電信業者顯示目前僅有台灣電信業者資料，歡迎用補充其他電信業者資料 (MCC/MNC 代碼)
 
 # 共同作者
 ### @hirakujira `code 重構以及電信業者顯示功能編寫`
