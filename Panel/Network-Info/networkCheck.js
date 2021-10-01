@@ -10,26 +10,35 @@ const { wifi, v4, v6 } = $network;
 
 // No network connection
 if (!v4.primaryAddress && !v6.primaryAddress) {
-    $done({
-      title: '沒有網路',
-      content: '尚未連接網際網路\n請檢查網際網路狀態後重試',
-      icon: 'wifi.exclamationmark',
-      'icon-color': '#CB1B45',
-    });
-  }
-else{
+  $done({
+    title: '沒有網路',
+    content: '尚未連接網際網路\n請檢查網際網路狀態後重試',
+    icon: 'wifi.exclamationmark',
+    'icon-color': '#CB1B45',
+  });
+}
+else {
   $httpClient.get('http://ip-api.com/json', function (error, response, data) {
-    const jsonData = JSON.parse(data);
+    if (error) {
+      $done({
+        title: '發生錯誤',
+        content: '無法獲得目前網路資訊\n請檢查網際網路狀態後重試',
+        icon: 'wifi.exclamationmark',
+        'icon-color': '#CB1B45',
+      });
+    }
+
+    const info = JSON.parse(data);
     $done({
       title: wifi.ssid ? wifi.ssid : '行動數據',
       content:
         (v4.primaryAddress ? `IPv4 : ${v4.primaryAddress} \n` : '') +
-        (v6.primaryAddress ? `IPv6 : ${v6.primaryAddress}\n`: '') +
+        (v6.primaryAddress ? `IPv6 : ${v6.primaryAddress}\n` : '') +
         (v4.primaryRouter && wifi.ssid ? `Router IPv4 : ${v4.primaryRouter}\n` : '') +
         (v6.primaryRouter && wifi.ssid ? `Router IPv6 : ${v6.primaryRouter}\n` : '') +
-        `節點 IP : ${jsonData.query}\n` +
-        `節點 ISP : ${jsonData.isp}\n` +
-        `節點位置 : ${getFlagEmoji(jsonData.countryCode)} | ${jsonData.country} - ${jsonData.city}`,
+        `節點 IP : ${info.query}\n` +
+        `節點 ISP : ${info.isp}\n` +
+        `節點位置 : ${getFlagEmoji(info.countryCode)} | ${info.country} - ${info.city}`,
       icon: wifi.ssid ? 'wifi' : 'simcard',
       'icon-color': wifi.ssid ? '#005CAF' : '#F9BF45',
     });
