@@ -43,7 +43,7 @@ if (!v4.primaryAddress && !v6.primaryAddress) {
         'icon-color': '#CB1B45',
       });
     }
-    console.log($network);
+    
     const info = JSON.parse(data);
     $done({
       title: wifi.ssid ? wifi.ssid : '行動數據' + carrierName,
