@@ -1,6 +1,6 @@
 # Network-Info 
 ### 功能
-1. 行動網路下顯示<br>- 行動數據 ISP 業者<br>- 本地 IPv4、IPv6 位址<br>- 代理節點 ISP、位置
+1. 行動網路下顯示<br>- 行動數據 ISP 業者 & LTE、SA、NSA 等類型<br>- 本地 IPv4、IPv6 位址<br>- 代理節點 ISP、位置
 2. Wi-Fi 下顯示<br>- 本地 IPv4、IPv6 位址<br>- Router IPv4、IPv6 位址<br>- 代理節點 ISP、位置
 
 # How to use
