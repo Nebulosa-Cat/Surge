@@ -7,6 +7,35 @@
 
  let cellularInfo = '';
  const carrierNames = {
+  //香港電信業者 MNC Code
+  '454-00': 'CSL', '454-02': 'CSL',  
+  '454-03': '3HK', '454-04': '3HK', 
+  '454-05': '3HK', '454-06': 'Smartone', 
+  '454-07': 'Chin Unicom', '454-08': 'Truphone',
+  '454-09': 'China Motion', '454-10': 'Sun Mobile', 
+  '454-12': 'CMHK', '454-13': 'CMHK',
+  '454-15': 'Smartone','454-16': 'PCCW',
+  '454-17': 'Smartone', '454-18': 'CSL',
+  '454-19': 'PCCW', '454-20': 'PCCW',
+  '454-23': 'Lycamobile', '454-29': 'PCCW',
+  '454-31': 'CTExcel',
+  //菲律賓電信業者 MNC Code
+  '515-01': 'Islacom',   '515-02': 'Globe',   
+  '515-03': 'Smart',   '515-04': 'Sun',   
+  '515-18': 'Cure',   '515-24': 'ABS-CBN', 
+  '515-08': 'Next Mobile',
+  //英國電信業者 MNC Code
+  '234-01': 'Vectone',  '234-02': 'O2',  
+  '234-03': 'Airtel', '234-07': 'Vodafone', 
+  '234-10': 'Giffgaff', '234-11': 'O2',
+  '234-15': 'Vodafone', '234-20': '3UK',
+  '234-25': 'Truphone','234-26': 'Lycamobile',
+  '234-30': 'T-Mobile UK', '234-31': 'T-Mobile UK',
+  '234-32': 'T-Mobile UK', '234-33': 'EE', '234-34': 'EE',
+  '234-38': 'Virgin Mobile', '234-86': 'EE',
+  '235-00': 'Vectone', '235-01': 'EE',
+  '235-02': 'EE', '235-91': 'Vodafone',
+  '235-92': 'Vodafone', 
    //台灣電信業者 MNC Code
    '466-11': '中華電信', '466-92': '中華電信',
    '466-01': '遠傳電信', '466-03': '遠傳電信',
