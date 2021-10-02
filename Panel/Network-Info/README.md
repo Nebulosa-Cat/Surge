@@ -7,7 +7,8 @@
 ### 安裝環境
 需要有網路調試工具 Surge ，且要付費至具有面板功能<br>- AppStore 版 4.9.3 或更新版本<br>- TestFlight 版 4.11.0 (2014) 或更新版本
 ### 模組安裝連結
-正式版 : https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Network-Info/Network-Info.sgmodule<br>
+繁體中文正式版 : https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Network-Info/Network-Info.sgmodule<br>
+簡體中文正式版 : https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Network-Info/cn/Network-Info_CN.sgmodule
 測試版 : https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Network-Info/test-version/Network-Info_test.sgmodule
 
 # 注意事項
