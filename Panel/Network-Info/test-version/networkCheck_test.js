@@ -75,8 +75,8 @@ if (!v4.primaryAddress && !v6.primaryAddress) {
     const radio = $network['cellular-data'].radio;
     if (carrierId && radio) {
       cellularInfo = carrierNames[carrierId] ?
-        carrierNames[carrierId] + '|' + radioGeneration[radio] + '-' + radio :
-        '行動數據|' + radioGeneration[radio] + '-' + radio;
+        carrierNames[carrierId] + ' | ' + radioGeneration[radio] + ' - ' + radio :
+        '行動數據 | ' + radioGeneration[radio] + ' - ' + radio;
     }
   }
   $httpClient.get('http://ip-api.com/json', function (error, response, data) {
