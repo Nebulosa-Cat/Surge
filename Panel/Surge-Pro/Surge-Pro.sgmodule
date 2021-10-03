@@ -3,4 +3,4 @@
 #!system=ios
 
 [Panel]
-SurgePro=title="Surge Pro® Licenses Status",content="授權有效期 : 2022-08-06",icon="checkmark.icloud",'icon-color'="#EFBB24",style=genertic,update-interval=1
+SurgePro=title="Surge Pro® Licenses Status",content="授權有效期 : 2022-08-06",icon="checkmark.icloud",icon-color="#EFBB24",style=genertic,update-interval=1
