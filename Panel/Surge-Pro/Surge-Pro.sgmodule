@@ -3,4 +3,4 @@
 #!system=ios
 
 [Panel]
-SurgePro=title="Surge Licenses Status",content="尊敬的 Surge Pro® 用戶，感謝您的訂閱，目前所有最新功能及 TestFlight 權限皆已開放\n 授權有效期 : 2022-08-06",icon="checkmark.icloud",'icon-color'="#EFBB24",style=info,update-interval=1
+SurgePro=title="Surge Pro® Licenses Status",content="授權有效期 : 2022-08-06",icon="checkmark.icloud",'icon-color'="#EFBB24",style=genertic,update-interval=1
