@@ -8,10 +8,10 @@
 <img src="https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Network-Info/img/error.PNG" width="300"></img>
 </p>
 <p align="center">
-  <a href="/README.md">繁体中文</a> |
-  <a href="/READMEs/README.cn.md">简体中文</a> |
-  <a href="/READMEs/README.en.md">English</a> |
-  <a href="/READMEs/README.jpn.md">日语</a>
+  <a href="/Panel/Network-Info/READMEs/README.cn.md">简体中文</a> |
+  <a href="/Panel/Network-Info/README.md">繁體中文</a> |
+  <a href="/Panel/Network-Info/READMEs/READMEs/README.jpn.md">日本語</a> |
+  <a href="/Panel/Network-Info/READMEs/READMEs/README.en.md">English</a>
 </p>
 
 ## 功能
