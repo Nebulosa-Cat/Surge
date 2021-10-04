@@ -10,8 +10,8 @@
 <p align="center">
   <a href="/README.md">繁體中文</a> |
   <a href="/READMEs/README.cn.md">简体中文</a> |
-  <a href="/READMEs/README.en.md">English</a> |
-  <a href="/READMEs/README.jpn.md">日本語</a>
+  <a href="/READMEs/README.jpn.md">日本語</a> |
+  <a href="/READMEs/README.en.md">English</a>
 </p>
 
 ## 功能
