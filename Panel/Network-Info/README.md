@@ -19,11 +19,13 @@
 
 ## How to use
 ### 1. 安裝環境
-需要有網路調試工具 Surge ，且要付費至具有面板功能<br>- AppStore 版 4.9.3 或更新版本<br>- TestFlight 版 4.11.0 (2014) 或更新版本
+**需要有網路調試工具 Surge ，且要付費至具有面板功能**<br>
+最低支援版本 :<br>
+>**AppStore 版 4.9.3 或更新版本**<br>
+>**TestFlight 版 4.11.0 (2014) 或更新版本**
 ### 2. 模組安裝連結
-繁體中文正式版 : https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Network-Info/Network-Info.sgmodule<br>
-簡體中文正式版 : https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Network-Info/cn/Network-Info_CN.sgmodule<br>
-測試版(不建議) : https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Network-Info/test-version/Network-Info_test.sgmodule
+> **繁體中文正式版 :** https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Network-Info/Network-Info.sgmodule<br>
+> **簡體中文正式版 :** https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Network-Info/cn/Network-Info_CN.sgmodule<br>
 ### 3. 安裝方式
 打開 Surge -> 模組 -> 安裝新模組... -> 填入上方安裝連結 -> 完成!
 ### 4. 更新模組方式
@@ -31,8 +33,8 @@
 更新模組本身 : Surge -> 模組 -> 找到本模組 -> 左滑後點擊更新<br>
 更新外部資源 : 點擊首頁最上方打開 Profile 頁面 -> 更新外部資源 <br>
 若仍有問題可以參考[這篇教學](https://www.jkg.tw/p3604/) <br>
-`兩次更新之間隔建議 5 分鐘以上，否則有機率頁面暫存檔尚未更新導致更新失敗`<br>
-`(檢查方式為 Surge -> 腳本 -> 腳本編輯器 -> 載入 -> 選擇networkCheck.js -> 檢查代碼是否與網頁版本相同`
+**兩次更新之間建議 _間隔 5 分鐘以上_，否則有機率頁面暫存檔尚未更新導致更新失敗<br>
+(檢查方式為 Surge -> 腳本 -> 腳本編輯器 -> 載入 -> 選擇networkCheck.js -> 檢查代碼是否與網頁版本相同**
 
 
 ## 注意事項
@@ -40,10 +42,14 @@
 2. 歡迎透過 Pull Request 提交翻譯版本 與 補充其他電信業者資料 (MNC 代碼)
 
 ## 共同作者
-#### @hirakujira `code 重構以及電信業者顯示功能編寫`
+### **@hirakujira :**  code 重構以及電信業者顯示功能編寫
 ## Special thanks to
-#### @Peng-YM `Net-Info 面板模組原作者`
-#### 聰聰 @congcong `sub-info 面板模組原作者`
-#### Pysta @mieqq `程式支援`
-#### 鴿子 @zZPiglet `code 重構`
-`以上順序不分排名`
+> **@Peng-YM :** Net-Info 面板模組原作者<br>
+>
+> **聰聰 @congcong :** sub-info 面板模組原作者<br>
+> 
+> **Pysta @mieqq :** 程式支援<br>
+> 
+> **鴿子 @zZPiglet :** code 重構 <br>
+
+__以上順序不分排名__
