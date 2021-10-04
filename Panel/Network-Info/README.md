@@ -1,12 +1,13 @@
 <h1 align="center">Network-Info</h1>
 
-<h4 align="center">一款用於 Surge 4 網路調試工具的網路資訊面板 </h4>
+<h4 align="center">一個基於 Surge 4 網路調試工具的網路資訊面板 </h4>
 
 <p align="center">
   <a href="/README.md">繁體中文</a> |
   <a href="/READMEs/README.en.md">English</a> |
   <a href="/READMEs/README.jpn.md">日本語</a>
 </p>
+
 ### 功能
 1. 行動網路下顯示<br>- 行動數據 ISP 業者 & LTE、SA、NSA 等類型<br>- 本地 IPv4、IPv6 位址<br>- 代理節點 ISP、位置
 2. Wi-Fi 下顯示<br>- 本地 IPv4、IPv6 位址<br>- Router IPv4、IPv6 位址<br>- 代理節點 ISP、位置
@@ -57,4 +58,3 @@
 ### Pysta @mieqq `程式支援`
 ### 鴿子 @zZPiglet `code 重構`
 `以上順序不分排名`
->>>>>>> 3f0884628f2a5f01661a30395819ed6c077a4990:Panel/Network-Info/README.md
