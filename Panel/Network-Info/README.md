@@ -29,7 +29,7 @@
 > **繁体中文正式版 :** https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Network-Info/Network-Info.sgmodule<br>
 > **简体中文正式版 :** https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Network-Info/cn/Network-Info_CN.sgmodule<br>
 ### 3. 安裝方式
-打开 Surge -> 模块 -> 安裝新模块... -> 复制上方链接地址进行安装 -> 完成!
+打开 Surge -> 模块 -> 安装新模块... -> 复制上方链接地址进行安装 -> 完成!
 ### 4. 更新模块方式
 #### 请按照以下方式进行更新:<br>
 模块更新 : Surge -> 模块 -> 找到需要更新的模块 -> 右滑点击更新完成更新<br>
