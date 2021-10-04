@@ -3,6 +3,11 @@
 <h4 align="center">一個基於 Surge 4 網路調試工具的網路資訊面板 </h4>
 
 <p align="center">
+<img src="https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Network-Info/img/Cell.PNG" width="300"></img>
+<img src="https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Network-Info/img/wifi.PNG" width="300"></img>
+<img src="https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Network-Info/img/error.PNG" width="300"></img>
+</p>
+<p align="center">
   <a href="/README.md">繁體中文</a> |
   <a href="/READMEs/README.en.md">English</a> |
   <a href="/READMEs/README.jpn.md">日本語</a>
