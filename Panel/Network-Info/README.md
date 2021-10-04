@@ -52,6 +52,6 @@
 > 
 > **Pysta @mieqq :** 友情协助<br>
 > 
-> **鴿子 @zZPiglet :** code 重构 <br>
+> **鸽子 @zZPiglet :** code 重构 <br>
 
 __以上出场排名不分先后__
