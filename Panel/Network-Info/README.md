@@ -1,4 +1,4 @@
-<h1 align="center">Network-Info</h1>
+<h1 align="center"> 网络信息 </h1>
 
 <h4 align="center"> 一个基于 Surge 4 客户端展示网络信息面板工具 </h4>
 
