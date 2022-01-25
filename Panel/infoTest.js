@@ -58,7 +58,7 @@ if (!v4.primaryAddress && !v6.primaryAddress) {
             });
         } else {
             const info = JSON.parse(data);
-            if ($info.province === undefined) {
+            if ($info[province] === undefined) {
                 const info = JSON.parse(data);
                 $done({
                     title: wifi.ssid ? wifi.ssid : cellularInfo,
