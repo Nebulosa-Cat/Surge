@@ -59,6 +59,7 @@ if (!v4.primaryAddress && !v6.primaryAddress) {
         } else {
             const info = JSON.parse(data);
             if ($info.province === undefined) {
+                const info = JSON.parse(data);
                 $done({
                     title: wifi.ssid ? wifi.ssid : cellularInfo,
                     content:
@@ -70,6 +71,7 @@ if (!v4.primaryAddress && !v6.primaryAddress) {
                     'icon-color': wifi.ssid ? '#007AFF' : '#F9BF45',
                 });
             } else {
+                const info = JSON.parse(data);
                 $done({
                     title: wifi.ssid ? wifi.ssid : cellularInfo,
                     content:
