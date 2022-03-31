@@ -54,8 +54,6 @@ Sub_info = script-name=Sub_info,update-interval=600
     $done({
       title: `${args.title} | ${hour}:${minutes}`,
       content: content.join("\n"),
-      icon: "",
-      "icon-color": "",
     });
   })();
   
