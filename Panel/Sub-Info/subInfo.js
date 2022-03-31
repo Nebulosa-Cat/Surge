@@ -54,6 +54,8 @@ Sub_info = script-name=Sub_info,update-interval=600
     $done({
       title: `${args.title} | ${hour}:${minutes}`,
       content: content.join("\n"),
+      icon: args.icon || "network.badge.shield.half.filled",
+      "icon-color": args.color || "#FEDFE1",
     });
   })();
   
