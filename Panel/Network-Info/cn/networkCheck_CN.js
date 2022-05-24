@@ -56,7 +56,7 @@ if (!v4.primaryAddress && !v6.primaryAddress) {
     $done({
       title: wifi.ssid ? wifi.ssid : cellularInfo,
       content:
-        `[IP地址]\n` +
+        `[IP 地址]\n` +
         (v4.primaryAddress ? `v4 @ ${v4.primaryAddress} \n` : '') +
         (v6.primaryAddress ? `v6 @ ${v6.primaryAddress}\n` : '') +
         (v4.primaryRouter && wifi.ssid ? `Router v4 @ ${v4.primaryRouter}\n` : '') +
