@@ -25,6 +25,9 @@ const radioGeneration = {
 
 const carrierNames = loadCarrierNames();
 
+setTimeout(getNetworkInfo(), 5000)
+
+function getNetworkInfo(){
 if (!v4.primaryAddress && !v6.primaryAddress) {
   $done({
     title: '沒有網路',
@@ -69,6 +72,7 @@ if (!v4.primaryAddress && !v6.primaryAddress) {
       'icon-color': wifi.ssid ? '#005CAF' : '#F9BF45',
     });
   });
+}
 }
 
 function getFlagEmoji(countryCode) {
