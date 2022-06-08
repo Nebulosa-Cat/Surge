@@ -25,7 +25,7 @@ const radioGeneration = {
 
 const carrierNames = loadCarrierNames();
 
-setTimeout(getNetworkInfo(), 5000)
+setTimeout(getNetworkInfo, 5000)
 
 function getNetworkInfo(){
 if (!v4.primaryAddress && !v6.primaryAddress) {
