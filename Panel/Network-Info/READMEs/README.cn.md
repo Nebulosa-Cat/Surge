@@ -3,9 +3,9 @@
 <h4 align="center"> 一个基于 Surge 4 客户端展示网络信息面板工具 </h4>
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Network-Info/img/Cell.PNG" width="300"></img>
-<img src="https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Network-Info/img/wifi.PNG" width="300"></img>
-<img src="https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Network-Info/img/error.PNG" width="300"></img>
+<img src="https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Network-Info/img/cell.JPG" width="300"></img>
+<img src="https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Network-Info/img/wifi.JPG" width="300"></img>
+<img src="https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Network-Info/img/error.JPG" width="300"></img>
 </p>
 <p align="center">
   <a href="/Panel/Network-Info/READMEs/README.cn.md">简体中文</a> |
