@@ -6,11 +6,11 @@
 
 /**
  * 网络请求封装为 Promise
- * Usage: Http.get(option).then(response => { console.log(data) }).catch(error => { console.log(error) })
- * Usage: Http.post(option).then(response => { console.log(data) }).catch(error => { console.log(error) })
+ * Usage: httpMethod.get(option).then(response => { console.log(data) }).catch(error => { console.log(error) })
+ * Usage: httpMethod.post(option).then(response => { console.log(data) }).catch(error => { console.log(error) })
  * response: { status, header, data }
  */
-class Http {
+class httpMethod {
   /**
    * 回调函数
    * @param {*} resolve 
@@ -151,7 +151,7 @@ function getNetworkInfo(retryTimes = 3, retryInterval = 1000) {
     });
   }
   // 发送网络请求
-  Http.get('http://ip-api.com/json').then(response => {
+  httpMethod.get('http://ip-api.com/json').then(response => {
     const info = JSON.parse(response.data);
     $done({
       title: wifi.ssid ?? getCellularInfo(),
