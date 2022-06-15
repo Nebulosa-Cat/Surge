@@ -46,7 +46,13 @@
 2. 歡迎透過 Pull Request 提交翻譯版本 與 補充其他電信業者資料 (MNC 代碼)
 
 ## 共同作者
-### **@hirakujira :**  code 重構以及電信業者顯示功能編寫
+**Hiraku :**  code 重構以及電信業者顯示功能編寫<br>
+**Samuel :**  Retry 功能及錯誤紀錄功能編寫<br>
+
+## 翻譯作者
+**TPCTPCTPC :**  EN 英文版本README翻譯<br>
+**Rabbit-Spec :**  CN 簡中版本翻譯<br>
+
 ## Special thanks to
 > **@Peng-YM :** Net-Info 面板模組原作者<br>
 >
