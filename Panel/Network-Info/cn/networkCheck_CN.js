@@ -126,7 +126,7 @@ function loadCarrierNames() {
   };
 }
 
-//取得手機使用營運商訊息(透過內建 API 調用本機資訊)
+//获取手机运营商信息（通过内置的API调用本机信息）
 function getCellularInfo() {
   const radioGeneration = {
     'GPRS': '2.5G',
