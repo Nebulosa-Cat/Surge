@@ -27,6 +27,8 @@
 ### 2. 模組安裝連結
 > **繁體中文正式版 :** https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Network-Info/Network-Info.sgmodule<br>
 > **簡體中文正式版 :** https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Network-Info/cn/Network-Info_CN.sgmodule<br>
+> **繁體中文測試版 :** https://raw.githubusercontent.com/Nebulosa-Cat/Surge/test/Panel/Network-Info/Network-Info-Test.sgmodule<br>
+> **簡體中文測試版 :** https://raw.githubusercontent.com/Nebulosa-Cat/Surge/test/Panel/Network-Info/cn/Network-Info-Test_CN.sgmodule<br>
 ### 3. 安裝方式
 打開 Surge -> 模組 -> 安裝新模組... -> 填入上方安裝連結 -> 完成!
 ### 4. 更新模組方式
@@ -46,7 +48,13 @@
 2. 歡迎透過 Pull Request 提交翻譯版本 與 補充其他電信業者資料 (MNC 代碼)
 
 ## 共同作者
-### **@hirakujira :**  code 重構以及電信業者顯示功能編寫
+**Hiraku :**  code 重構以及電信業者顯示功能編寫<br>
+**Samuel :**  Retry 功能及錯誤紀錄功能編寫<br>
+
+## 翻譯作者
+**TPCTPCTPC :**  EN 英文版本README翻譯<br>
+**Rabbit-Spec :**  CN 簡中版本翻譯<br>
+
 ## Special thanks to
 > **@Peng-YM :** Net-Info 面板模組原作者<br>
 >

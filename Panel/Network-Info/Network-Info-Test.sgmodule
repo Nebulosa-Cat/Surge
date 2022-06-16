@@ -1,0 +1,12 @@
+#!name=Network Info Panel Test Ver
+#!desc=網路詳情面板 @Nebulosa-Cat
+#!system=ios
+
+[Panel]
+NetInfoPanelTest=title="",content="",style=info,script-name=net-info-panel-test.js,update-interval=1
+
+[Script]
+net-info-panel-test.js=script-path=https://raw.githubusercontent.com/Nebulosa-Cat/Surge/test/Panel/Network-Info/networkCheck.js,type=generic,timeout=30
+
+[Host]
+ip-api.com = 208.95.112.1
