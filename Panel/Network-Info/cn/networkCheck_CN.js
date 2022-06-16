@@ -126,6 +126,7 @@ function loadCarrierNames() {
   };
 }
 
+//取得手機使用營運商訊息(透過內建 API 調用本機資訊)
 function getCellularInfo() {
   const radioGeneration = {
     'GPRS': '2.5G',
