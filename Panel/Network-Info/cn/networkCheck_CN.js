@@ -166,7 +166,7 @@ function getIP() {
   const { v4, v6 } = $network;
   let info = [];
   if (!v4 && !v6) {
-    info = ['正在切换网络', '请手动刷新以重新获取 IP'];
+    info = ['网路可能切换', '请手动刷新以重新获取 IP'];
   } else {
     if (v4?.primaryAddress) info.push(`v4 @ ${v4?.primaryAddress}`);
     if (v6?.primaryAddress) info.push(`v6 @ ${v6?.primaryAddress}`);

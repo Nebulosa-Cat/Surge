@@ -164,20 +164,18 @@ function getSSID() {
 
 function getIP() {
     const { v4, v6 } = $network;
-    let info;
+    let info = [];
     if (!v4 && !v6) {
-        info = ['網路可能切換', '請手動重整面板取得 IP'];
+      info = ['網路可能切換', '請手動重整面板更新 IP'];
     } else {
-        info = [
-            v4?.primaryAddress ? `v4 @ ${v4?.primaryAddress}` : '',
-            v6?.primaryAddress ? `v6 @ ${v6?.primaryAddress}` : '',
-            v4?.primaryRouter && getSSID() ? `Router v4 @ ${v4?.primaryRouter}` : '',
-            v6?.primaryRouter && getSSID() ? `Router IPv6 @ ${v6?.primaryRouter}` : ''
-        ];
+      if (v4?.primaryAddress) info.push(`v4 @ ${v4?.primaryAddress}`);
+      if (v6?.primaryAddress) info.push(`v6 @ ${v6?.primaryAddress}`);
+      if (v4?.primaryRouter && getSSID()) info.push(`Router v4 @ ${v4?.primaryRouter}`);
+      if (v6?.primaryRouter && getSSID()) info.push(`Router IPv6 @ ${v6?.primaryRouter}`);
     }
     info = info.join("\n");
     return info + "\n";
-}
+  }
 
 /**
  * 获取 IP 信息
