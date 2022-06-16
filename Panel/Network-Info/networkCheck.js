@@ -21,12 +21,7 @@ class httpMethod {
      */
     static _httpRequestCallback(resolve, reject, error, response, data) {
         if (error) {
-            $done({
-                title: '發生錯誤',
-                content: '無法獲得目前網路資訊\n請檢查網際網路狀態後重試',
-                icon: 'wifi.exclamationmark',
-                'icon-color': '#CB1B45',
-            });
+            reject(error);
         } else {
             resolve(Object.assign(response, { data }));
         }
