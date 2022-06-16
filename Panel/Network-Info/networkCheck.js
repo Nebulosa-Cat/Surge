@@ -54,6 +54,28 @@ class httpMethod {
     }
 }
 
+class logger {
+    static id = randomString();
+
+    static log(message) {
+        message = `[${this.id}] [ LOG ] ${message}`;
+        console.log(message);
+    }
+
+    static error(message) {
+        message = `[${this.id}] [ERROR] ${message}`;
+        console.log(message);
+    }
+}
+
+function randomString(e = 6) {
+    var t = "ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678",
+        a = t.length,
+        n = "";
+    for (i = 0; i < e; i++) n += t.charAt(Math.floor(Math.random() * a));
+    return n;
+}
+
 function getFlagEmoji(countryCode) {
     const codePoints = countryCode
         .toUpperCase()
@@ -104,7 +126,7 @@ function loadCarrierNames() {
     };
 }
 
-//取得手機使用頻段訊息(透過蘋果內建 API)
+//取得手機使用服務業者訊息(透過內建 API 調用本機資訊)
 function getCellularInfo() {
     const radioGeneration = {
         'GPRS': '2.5G',
@@ -136,50 +158,71 @@ function getCellularInfo() {
     return cellularInfo;
 }
 
-/**
-* 取得 IP 資訊
-* @param {*} retryTimes // 重試次數
-* @param {*} retryInterval // 重試間隔 ms
-*/
-function getNetworkInfo(retryTimes = 3, retryInterval = 1000) {
+function getIP() {
     const { wifi, v4, v6 } = $network;
-    if (!v4.primaryAddress && !v6.primaryAddress) {
-        $done({
-            title: '沒有網路',
-            content: '尚未連接網際網路\n請檢查網際網路狀態後重試',
-            icon: 'wifi.exclamationmark',
-            'icon-color': '#CB1B45',
-        });
+    let info;
+    if (!v4 && !v6) {
+        info = ['網路可能切換', '請手動重整面板取得 IP'];
+    } else {
+        info = [
+            v4?.primaryAddress ? `v4 @ ${v4?.primaryAddress}` : '',
+            v6?.primaryAddress ? `v6 @ ${v6?.primaryAddress}` : '',
+            v4?.primaryRouter && wifi?.ssid ? `Router v4 @ ${v4?.primaryRouter}` : '',
+            v6?.primaryRouter && wifi?.ssid ? `Router IPv6 @ ${v6?.primaryRouter}` : ''
+        ];
     }
-    // 發送網路請求
+    info = info.join("\n");
+    if (info.charAt(info.length - 1) !== "\n") {
+        info += "\n";
+    }
+    return info;
+}
+
+function getSSID() {
+    return $network.wifi?.ssid;
+}
+
+/**
+ * 获取 IP 信息
+ * @param {*} retryTimes // 重试次数
+ * @param {*} retryInterval // 重试间隔 ms
+ */
+function getNetworkInfo(retryTimes = 5, retryInterval = 1000) {
+    // 发送网络请求
     httpMethod.get('http://ip-api.com/json').then(response => {
         if (Number(response.status) > 300) {
-            throw new Error(`request error with http status code: ${response.status}\n${response.data}`);
+            throw new Error(`Request error with http status code: ${response.status}\n${response.data}`);
         }
         const info = JSON.parse(response.data);
         $done({
-            title: wifi.ssid ? wifi.ssid : getCellularInfo(),
+            title: getSSID() ?? getCellularInfo(),
             content:
-                `[IP Address]\n` +
-                (v4.primaryAddress ? `v4 @ ${v4.primaryAddress}\n` : '') +
-                (v6.primaryAddress ? `v6 @ ${v6.primaryAddress}\n` : '') +
-                (v4.primaryRouter && wifi.ssid ? `Router v4 @ ${v4.primaryRouter}\n` : '') +
-                (v6.primaryRouter && wifi.ssid ? `Router IPv6 @ ${v6.primaryRouter}\n` : '') +
+                `[IP Adress]\n` +
+                getIP() +
                 `[節點 IP] ${info.query}\n` +
-                `[節點 ISP] ${info.isp}\n` +
+                `[節點位置] ${info.isp}\n` +
                 `[節點位置] ${getFlagEmoji(info.countryCode)} | ${info.country} - ${info.city}`,
-            icon: wifi.ssid ? 'wifi' : 'simcard',
-            'icon-color': wifi.ssid ? '#005CAF' : '#F9BF45',
+            icon: getSSID() ? 'wifi' : 'simcard',
+            'icon-color': getSSID() ? '#005CAF' : '#F9BF45',
         });
     }).catch(error => {
-        // 判斷是否重試
+        // 网络切换
+        if (String(error).startsWith("Network changed")) {
+            if (getSSID()) {
+                $network.wifi = undefined;
+                $network.v4 = undefined;
+                $network.v6 = undefined;
+            }
+        }
+        // 判断是否还有重试机会
         if (retryTimes > 0) {
-            console.log(`Retry after ${retryInterval}ms`);
-            // retryInterval 時間後再次執行函數 getNetworkInfo
+            logger.error(error);
+            logger.log(`Retry after ${retryInterval}ms`);
+            // retryInterval 时间后再次执行该函数
             setTimeout(() => getNetworkInfo(--retryTimes, retryInterval), retryInterval);
         } else {
-            // 輸出紀錄
-            console.log(error);
+            // 打印日志
+            logger.error(error);
             $done({
                 title: '發生錯誤',
                 content: '無法獲得目前網路資訊\n請檢查網際網路狀態後重試',
@@ -193,17 +236,26 @@ function getNetworkInfo(retryTimes = 3, retryInterval = 1000) {
 /**
 * 主要邏輯，程式開始
 */
-// Surge 預設腳本執行時間為 10s
-// 在 9 秒時強制結束腳本執行並提示用戶請求逾時
-setTimeout(() => {
-    $done({
-        title: "請求逾時",
-        content: "請求逾時",
-        icon: 'wifi.exclamationmark',
-        'icon-color': '#CB1B45',
-    });
-}, 9000);
+(() => {
+    const retryTimes = 5;
+    const retryInterval = 1000;
+    // Surge 腳本逾時時間設為 30s
+    // 提早 500ms 結束進程
+    const surgeMaxTimeout = 29500;
+    // 腳本超時時間
+    // retryTimes * 5000 為每次網路請求逾時時間（Surge 網路請求逾時為 5s）
+    const scriptTimeout = retryTimes * 5000 + retryTimes * retryInterval;
+    setTimeout(() => {
+        logger.log("Script timeout");
+        $done({
+            title: "請求逾時",
+            content: "請求逾時",
+            icon: 'wifi.exclamationmark',
+            'icon-color': '#CB1B45',
+        });
+    }, scriptTimeout > surgeMaxTimeout ? surgeMaxTimeout : scriptTimeout);
 
-// 獲取網路訊息
-console.log("start main");
-getNetworkInfo();
+    // 獲取網路訊息
+    logger.log("Script start");
+    getNetworkInfo(retryTimes, retryInterval);
+})();
