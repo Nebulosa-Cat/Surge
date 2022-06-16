@@ -246,7 +246,7 @@ function getNetworkInfo(retryTimes = 5, retryInterval = 1000) {
         logger.log("Script timeout");
         $done({
             title: "請求逾時",
-            content: "請求逾時",
+            content: "連線請求逾時\n請檢查網際網路狀態後重試",
             icon: 'wifi.exclamationmark',
             'icon-color': '#CB1B45',
         });

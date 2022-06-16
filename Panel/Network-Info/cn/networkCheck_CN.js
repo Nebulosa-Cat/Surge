@@ -126,7 +126,7 @@ function loadCarrierNames() {
   };
 }
 
-//取得手機使用營運商訊息(透過內建 API 調用本機資訊)
+//获取手机运营商信息(通过内置的 API 调用设备信息)
 function getCellularInfo() {
   const radioGeneration = {
     'GPRS': '2.5G',
@@ -166,7 +166,7 @@ function getIP() {
   const { v4, v6 } = $network;
   let info = [];
   if (!v4 && !v6) {
-    info = ['网络可能被切换', '请手动刷新以重新获取 IP'];
+    info = ['正在切换网络', '请手动刷新以重新获取 IP'];
   } else {
     if (v4?.primaryAddress) info.push(`v4 @ ${v4?.primaryAddress}`);
     if (v6?.primaryAddress) info.push(`v6 @ ${v6?.primaryAddress}`);
@@ -244,7 +244,7 @@ function getNetworkInfo(retryTimes = 5, retryInterval = 1000) {
     logger.log("Script timeout");
     $done({
       title: "请求超时",
-      content: "请求超时",
+      content: "连接请求超时\n请检查网络状态后重试",
       icon: 'wifi.exclamationmark',
       'icon-color': '#CB1B45',
     });
