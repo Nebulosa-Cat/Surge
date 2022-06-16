@@ -27,6 +27,8 @@
 ### 2. 模組安裝連結
 > **繁體中文正式版 :** https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Network-Info/Network-Info.sgmodule<br>
 > **簡體中文正式版 :** https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Network-Info/cn/Network-Info_CN.sgmodule<br>
+> **繁體中文測試版 :** https://raw.githubusercontent.com/Nebulosa-Cat/Surge/test/Panel/Network-Info/Network-Info-Test.sgmodule<br>
+> **簡體中文測試版 :** https://raw.githubusercontent.com/Nebulosa-Cat/Surge/test/Panel/Network-Info/cn/Network-Info-Test_CN.sgmodule<br>
 ### 3. 安裝方式
 打開 Surge -> 模組 -> 安裝新模組... -> 填入上方安裝連結 -> 完成!
 ### 4. 更新模組方式
