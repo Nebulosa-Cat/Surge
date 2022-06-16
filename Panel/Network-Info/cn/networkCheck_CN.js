@@ -166,7 +166,7 @@ function getIP() {
   const { v4, v6 } = $network;
   let info = [];
   if (!v4 && !v6) {
-    info = ['网络可能被切换', '请手动刷新以重新获取 IP'];
+    info = ['正在切换网络', '请手动刷新以重新获取 IP'];
   } else {
     if (v4?.primaryAddress) info.push(`v4 @ ${v4?.primaryAddress}`);
     if (v6?.primaryAddress) info.push(`v6 @ ${v6?.primaryAddress}`);
@@ -243,7 +243,7 @@ function getNetworkInfo(retryTimes = 5, retryInterval = 1000) {
   setTimeout(() => {
     logger.log("Script timeout");
     $done({
-      title: "请求超时",
+      title: "发生错误",
       content: "请求超时",
       icon: 'wifi.exclamationmark',
       'icon-color': '#CB1B45',
