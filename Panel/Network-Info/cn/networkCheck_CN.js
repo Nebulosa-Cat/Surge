@@ -157,8 +157,12 @@ function getCellularInfo() {
   return cellularInfo;
 }
 
+function getSSID() {
+  return $network.wifi?.ssid;
+}
+
 function getIP() {
-  const { wifi, v4, v6 } = $network;
+  const { v4, v6 } = $network;
   let info;
   if (!v4 && !v6) {
     info = ['网络可能被切换', '请手动刷新以重新获取 IP'];
@@ -166,19 +170,15 @@ function getIP() {
     info = [
       v4?.primaryAddress ? `v4 @ ${v4?.primaryAddress}` : '',
       v6?.primaryAddress ? `v6 @ ${v6?.primaryAddress}` : '',
-      v4?.primaryRouter && wifi?.ssid ? `Router v4 @ ${v4?.primaryRouter}` : '',
-      v6?.primaryRouter && wifi?.ssid ? `Router IPv6 @ ${v6?.primaryRouter}` : ''
+      v4?.primaryRouter && getSSID() ? `Router v4 @ ${v4?.primaryRouter}` : '',
+      v6?.primaryRouter && getSSID() ? `Router IPv6 @ ${v6?.primaryRouter}` : ''
     ];
   }
-  info = info.join("\n");
+  info = info.join("\n").trim();
   if (info.charAt(info.length - 1) !== "\n") {
     info += "\n";
   }
   return info;
-}
-
-function getSSID() {
-  return $network.wifi?.ssid;
 }
 
 /**
