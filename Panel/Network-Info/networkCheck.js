@@ -8,7 +8,7 @@
  * 網路請求封裝成 Promise
  * Usage: httpMethod.get(option).then(response => { console.log(data) }).catch(error => { console.log(error) })
  * Usage: httpMethod.post(option).then(response => { console.log(data) }).catch(error => { console.log(error) })
- * response: { status, header, data }
+ * response: { status, headers, data }
  */
 class httpMethod {
     /**
@@ -158,6 +158,9 @@ function getNetworkInfo(retryTimes = 3, retryInterval = 1000) {
     }
     // 發送網路請求
     httpMethod.get('http://ip-api.com/json').then(response => {
+        if (Number(response.status) > 300) {
+            throw new Error(`request error with http status code: ${response.status}\n${response.data}`);
+        }
         const info = JSON.parse(response.data);
         $done({
             title: wifi.ssid ? wifi.ssid : getCellularInfo(),
@@ -207,4 +210,5 @@ setTimeout(() => {
 }, 9000);
 
 // 獲取網路訊息
+console.log("start main");
 getNetworkInfo();
