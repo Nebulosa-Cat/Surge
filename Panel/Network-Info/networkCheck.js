@@ -176,10 +176,7 @@ function getIP() {
         ];
     }
     info = info.join("\n");
-    if (info.charAt(info.length - 1) !== "\n") {
-        info += "\n";
-    }
-    return info;
+    return info + "\n";
 }
 
 /**
