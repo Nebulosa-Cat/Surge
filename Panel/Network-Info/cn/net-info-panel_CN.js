@@ -54,19 +54,23 @@ class httpMethod {
   }
 }
 
-class logger {
-  static id = randomString();
-
-  static log(message) {
-    message = `[${this.id}] [ LOG ] ${message}`;
-    console.log(message);
+class loggerUtil {
+  constructor() {
+      this.id = randomString();
   }
 
-  static error(message) {
-    message = `[${this.id}] [ERROR] ${message}`;
-    console.log(message);
+  log(message) {
+      message = `[${this.id}] [ LOG ] ${message}`;
+      console.log(message);
+  }
+
+  error(message) {
+      message = `[${this.id}] [ERROR] ${message}`;
+      console.log(message);
   }
 }
+
+var logger = new loggerUtil();
 
 function randomString(e = 6) {
   var t = "ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678",
