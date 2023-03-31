@@ -15,8 +15,9 @@
 </p>
 
 ## 功能
-1. 蜂窝网络下显示<br>- 蜂窝数据 ISP  & LTE、SA、NSA 等类型<br>- 本地 IPv4、IPv6 位址<br>- 代理节点 ISP、位置
-2. Wi-Fi 下显示<br>- 本地 IPv4、IPv6 地址<br>- 路由器 IPv4、IPv6 地址<br>- 代理节点 ISP、位置
+1. 蜂窝网络下显示<br>- 蜂窝数据 ISP*  & LTE、SA、NSA 等类型<br>- 本地 IPv4、IPv6 位址<br>- 代理节点 ISP、位置
+2. Wi-Fi 下显示<br>- 本地 IPv4、IPv6 地址<br>- 路由器 IPv4、IPv6 地址<br>- 代理节点 ISP、位置<br>
+*注1: iOS 16.4 之后苹果不再开放 APP 取得 MCC 与 MNC 编码，因此升级系统后已经不再支援显示电信业者
 
 ## How to use
 ### 1. 安装环境
