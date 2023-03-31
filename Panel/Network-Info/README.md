@@ -15,8 +15,9 @@
 </p>
 
 ## 功能
-1. 行動網路下顯示<br>- 行動數據 ISP 業者 (註: iOS 16.4 之後蘋果不再開放 APP 取得 MCC 與 MNC 編碼，因此升級系統後已經不再支援顯示電信業者) & LTE、SA、NSA 等類型<br>- 本地 IPv4、IPv6 位址<br>- 代理節點 ISP、位置
-2. Wi-Fi 下顯示<br>- 本地 IPv4、IPv6 位址<br>- Router IPv4、IPv6 位址<br>- 代理節點 ISP、位置
+1. 行動網路下顯示<br>- 行動數據 ISP 業者* & LTE、SA、NSA 等類型<br>- 本地 IPv4、IPv6 位址<br>- 代理節點 ISP、位置
+2. Wi-Fi 下顯示<br>- 本地 IPv4、IPv6 位址<br>- Router IPv4、IPv6 位址<br>- 代理節點 ISP、位置<br>
+*註1: iOS 16.4 之後蘋果不再開放 APP 取得 MCC 與 MNC 編碼，因此升級系統後已經不再支援顯示電信業者
 
 ## How to use
 ### 1. 安裝環境
