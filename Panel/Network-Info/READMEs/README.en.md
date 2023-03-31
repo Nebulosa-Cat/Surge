@@ -15,8 +15,9 @@
 </p>
 
 ## What to show
-1. In Cellular<br>- ISP's names & service type(LTE/5G NSA/5G SA)<br>- IPv4/IPv6 address<br>- IPv4/IPv6 address & location for proxy
-2. In Wi-Fi<br>- IPv4/IPv6 address<br>- Router's IPv4/IPv6 address<br>- IPv4/IPv6 address & location for proxy
+1. In Cellular<br>- ISP's names* & service type(LTE/5G NSA/5G SA)<br>- IPv4/IPv6 address<br>- IPv4/IPv6 address & location for proxy
+2. In Wi-Fi<br>- IPv4/IPv6 address<br>- Router's IPv4/IPv6 address<br>- IPv4/IPv6 address & location for proxy<br>
+*:Since iOS 16.4, Apple doen't allow application get MCC and MNC code anymore, View ISP provider feature only support <= iOS 16.3
 
 ## How to use
 ### 1. Installation
