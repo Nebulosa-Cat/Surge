@@ -56,17 +56,17 @@ class httpMethod {
 
 class loggerUtil {
   constructor() {
-      this.id = randomString();
+    this.id = randomString();
   }
 
   log(message) {
-      message = `[${this.id}] [ LOG ] ${message}`;
-      console.log(message);
+    message = `[${this.id}] [ LOG ] ${message}`;
+    console.log(message);
   }
 
   error(message) {
-      message = `[${this.id}] [ERROR] ${message}`;
-      console.log(message);
+    message = `[${this.id}] [ERROR] ${message}`;
+    console.log(message);
   }
 }
 
@@ -153,10 +153,10 @@ function getCellularInfo() {
   if ($network['cellular-data']) {
     const carrierId = $network['cellular-data'].carrier;
     const radio = $network['cellular-data'].radio;
-    if (carrierId && radio) {
+    if ($network.wifi?.ssid == null && radio) {
       cellularInfo = carrierNames[carrierId] ?
-        carrierNames[carrierId] + ' | ' + radioGeneration[radio] + ' - ' + radio :
-        '蜂窝数据 | ' + radioGeneration[radio] + ' - ' + radio;
+        `${carrierNames[carrierId]} | ${radioGeneration[radio]} - ${radio} ` :
+        `蜂窝数据 | ${radioGeneration[radio]} - ${radio}`;
     }
   }
   return cellularInfo;
