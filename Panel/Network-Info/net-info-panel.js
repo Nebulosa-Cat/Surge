@@ -153,10 +153,10 @@ function getCellularInfo() {
     if ($network['cellular-data']) {
         const carrierId = $network['cellular-data'].carrier;
         const radio = $network['cellular-data'].radio;
-        if (carrierId && radio) {
+        if ($network.wifi?.ssid == null && radio) {
             cellularInfo = carrierNames[carrierId] ?
-                carrierNames[carrierId] + ' | ' + radioGeneration[radio] + ' - ' + radio :
-                '行動數據 | ' + radioGeneration[radio] + ' - ' + radio;
+                `${carrierNames[carrierId]} | ${radioGeneration[radio]} - ${radio} ` :
+                `行動數據 | ${radioGeneration[radio]} - ${radio}`;
         }
     }
     return cellularInfo;
@@ -182,12 +182,12 @@ function getIP() {
   }
 
 /**
- * 获取 IP 信息
- * @param {*} retryTimes // 重试次数
- * @param {*} retryInterval // 重试间隔 ms
+ * 獲取IP訊息
+ * @param {*} retryTimes // 重試次數
+ * @param {*} retryInterval // 重試間格 ms
  */
 function getNetworkInfo(retryTimes = 5, retryInterval = 1000) {
-    // 发送网络请求
+    // send http request
     httpMethod.get('http://ip-api.com/json').then(response => {
         if (Number(response.status) > 300) {
             throw new Error(`Request error with http status code: ${response.status}\n${response.data}`);
@@ -205,7 +205,7 @@ function getNetworkInfo(retryTimes = 5, retryInterval = 1000) {
             'icon-color': getSSID() ? '#005CAF' : '#F9BF45',
         });
     }).catch(error => {
-        // 网络切换
+        // 網路切換
         if (String(error).startsWith("Network changed")) {
             if (getSSID()) {
                 $network.wifi = undefined;
@@ -213,14 +213,14 @@ function getNetworkInfo(retryTimes = 5, retryInterval = 1000) {
                 $network.v6 = undefined;
             }
         }
-        // 判断是否还有重试机会
+        // 判斷是否有重試機會
         if (retryTimes > 0) {
             logger.error(error);
             logger.log(`Retry after ${retryInterval}ms`);
-            // retryInterval 时间后再次执行该函数
+            // retryInterval 時間後再次執行該函數
             setTimeout(() => getNetworkInfo(--retryTimes, retryInterval), retryInterval);
         } else {
-            // 打印日志
+            // 打印日誌
             logger.error(error);
             $done({
                 title: '發生錯誤',
