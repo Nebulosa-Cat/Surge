@@ -1,5 +1,6 @@
 #!name=Network Info Panel
 #!desc=網路詳情面板 @Nebulosa-Cat
+#!category=Panels
 #!system=ios
 
 [Panel]

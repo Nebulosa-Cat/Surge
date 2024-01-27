@@ -1,5 +1,6 @@
 #!name=Netflix IP Test
 #!desc=Netflix 鎖區測試，本版本為個人繁體化自用
+#!category=Panels
 #!system=ios
 
 [Panel]
