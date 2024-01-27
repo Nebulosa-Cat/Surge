@@ -1,5 +1,6 @@
 #!name=Flush DNS
 #!desc=Flush DNS by @zZPiglet
+#!category=Panels
 #!system=ios
 
 [Panel]

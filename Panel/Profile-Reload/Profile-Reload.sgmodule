@@ -1,5 +1,6 @@
 #!name=Profile Reload
 #!desc=配置文件重新載入面板 @Pysta
+#!category=Panels
 #!system=ios
 
 [Panel]

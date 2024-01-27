@@ -1,5 +1,6 @@
 #!name=YouTube Premium Unlock Check
 #!desc=YouTube Premium 跨區解鎖測試
+#!category=Panels
 
 [Panel]
 premiumCheck = script-name=premiumCheck, title="YouTube Premium 跨區解鎖測試", update-interval=1
