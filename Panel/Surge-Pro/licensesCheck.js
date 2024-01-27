@@ -16,26 +16,26 @@ if (typeof $argument != "undefined") {
     }
     const timeDiff = timeDiffCalc(todayTimestamp, licensesDateTimestamp);
 
-    //授權未過期
+    // 授權未過期
     if (todayTimestamp < licensesDateTimestamp) {
         $done({
-            title: "Surge Pro® Licenses Status",
-            content: `授權活躍中，再 ${timeDiff} 天後過期。`,
+            title: "Surge Pro® License Status",
+            content: `授權活躍中，在 ${timeDiff} 天後過期。`,
             icon: 'checkmark.icloud',
             'icon-color': '#5DAC81',
         });
     }
-    //  //授權已過期
+    // 授權已過期
     else if (todayTimestamp > licensesDateTimestamp) {
         $done({
-            title: "Surge Pro® Licenses Status",
+            title: "Surge Pro® License Status",
             content: `授權已過期 ${timeDiff} 天，請重新訂閱`,
             icon: 'xmark.icloud',
             'icon-color': '#DB4D6D',
         });
     } else {
         $done({
-            title: "Surge Pro® Licenses Status",
+            title: "Surge Pro® License Status",
             content: "今天即將過期，請重新訂閱",
             icon: 'exclamationmark.icloud',
             'icon-color': '#F6C555',
