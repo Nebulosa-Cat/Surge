@@ -1,5 +1,5 @@
 !(async () => {
-    let panel = { title: "Profile Reload" }
+    let panel = { title: "Profile Reload", content: "點擊以重新整理" }
 
     if (typeof $argument != "undefined") {
         let arg = Object.fromEntries($argument.split("&").map((item) => item.split("=")));
