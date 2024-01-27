@@ -1,5 +1,5 @@
 !(async () => {
-    let panel = { title: "Profile Reload", content: "點擊以重新整理" }
+    let panel = { title: "Profile Reload"}
 
     if (typeof $argument != "undefined") {
         let arg = Object.fromEntries($argument.split("&").map((item) => item.split("=")));
@@ -20,15 +20,3 @@ function httpAPI(path = "", method = "POST", body = null) {
         });
     });
 }
-
-/*
-$httpAPI("POST", "/v1/profiles/reload", {}, data => {
-    $notification.post("配置重載","成功","")
-    $done({
-        title: "Profile Reload",
-        content: "配置檔案重載成功",
-        icon: "{{{icon}}}",
-        "icon-color": "{{{iconColor}}}",
-     })
-    });
-*/
