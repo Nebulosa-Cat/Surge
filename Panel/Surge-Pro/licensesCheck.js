@@ -24,7 +24,7 @@ if (typeof $argument != "undefined") {
     if (nowDate < arg.licensesDate){
         $done({
             title: "Surge Pro® Licenses Status",
-            content: `授權活躍中，再 ${timeDiff} 後過期。`,
+            content: `授權活躍中，再 ${timeDiff} 天後過期。`,
             icon: 'checkmark.icloud',
             'icon-color': '#5DAC81',
         });
