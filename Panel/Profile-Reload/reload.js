@@ -4,6 +4,7 @@
     if (typeof $argument != "undefined") {
         let arg = Object.fromEntries($argument.split("&").map((item) => item.split("=")));
         if (arg.title) panel.title = arg.title;
+        if (arg.content) panel.content = arg.content;
         if (arg.icon) panel.icon = arg.icon;
         if (arg.color) panel["icon-color"] = arg.color;
     }
@@ -17,6 +18,7 @@
 function httpAPI(path = "", method = "POST", body = null) {
     return new Promise((resolve) => {
         $httpAPI(method, path, body, (result) => {
+            $notification.post("配置重載","成功","")
             resolve(result);
         });
     });
