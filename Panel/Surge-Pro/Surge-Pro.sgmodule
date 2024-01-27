@@ -2,7 +2,7 @@
 #!desc=Surge 訂閱日期面板 @Nebulosa-Cat
 #!category=Panels
 #!system=ios
-#!arguments=licensesDate
+#!arguments=licensesDate, icon:checkmark.icloud, iconColor:#1B813E
 
 [Panel]
-SurgePro=title="Surge Pro® Licenses Status",content="授權有效期 : {{{licensesDate}}}",icon="checkmark.icloud",icon-color="#1B813E",update-interval=1
+SurgePro=title="Surge Pro® Licenses Status",content="授權有效期 : {{{licensesDate}}}",icon="{{{icon}}}",icon-color="{{{iconColor}}}",update-interval=1

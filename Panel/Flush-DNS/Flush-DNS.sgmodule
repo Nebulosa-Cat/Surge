@@ -1,10 +1,11 @@
 #!name=Flush DNS
 #!desc=Flush DNS by @zZPiglet
 #!category=Panels
+#!arguments=icon:arrow.triangle.2.circlepath.circle, iconColor:#0089A7
 #!system=ios
 
 [Panel]
 flushDNS = script-name=flushDNS,update-interval=600
 
 [Script]
-flushDNS = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/zZPiglet/Task/master/asset/flushDNS.js,argument=title=DNS FLush&icon=arrow.triangle.2.circlepath.circle&color=#0089A7&server=false
+flushDNS = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/zZPiglet/Task/master/asset/flushDNS.js,argument=title=DNS FLush&icon={{{icon}}}&color={{{iconColor}}}&server=false
