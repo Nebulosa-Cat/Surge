@@ -2,7 +2,11 @@
 #!desc=Surge 訂閱日期面板 @Nebulosa-Cat
 #!category=Panels
 #!system=ios
-#!arguments=licensesDate, icon:checkmark.icloud, iconColor:#1B813E
+#!arguments=licensesDate
+#!arguments-desc=請以 YYYY-MM-DD 格式填入授權到期日
 
 [Panel]
-SurgePro=title="Surge Pro® Licenses Status",content="授權有效期 : {{{licensesDate}}}",icon="{{{icon}}}",icon-color="{{{iconColor}}}",update-interval=1
+SurgePro = script-name=licensesCheck.js,update-interval=1
+
+[Script]
+licensesCheck.js=script-path=https://raw.githubusercontent.com/Nebulosa-Cat/Surge/main/Panel/Surge-Pro/licensesCheck.js,type=generic,argument=licensesDate={{{licensesDate}}}
