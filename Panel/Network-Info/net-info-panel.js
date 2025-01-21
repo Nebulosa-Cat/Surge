@@ -88,6 +88,7 @@ function getFlagEmoji(countryCode) {
     return String.fromCodePoint(...codePoints);
 }
 
+/*
 function loadCarrierNames() {
     //整理邏輯:前三碼相同->後兩碼同電信->剩下的
     return {
@@ -145,6 +146,7 @@ function loadCarrierNames() {
         '502-17': 'Maxis',
     };
 }
+*/
 
 //取得手機使用服務業者訊息(透過內建 API 調用本機資訊)
 function getCellularInfo() {
@@ -165,13 +167,17 @@ function getCellularInfo() {
     };
 
     let cellularInfo = '';
-    const carrierNames = loadCarrierNames();
+    //const carrierNames = loadCarrierNames();
     if ($network['cellular-data']) {
         const carrierId = $network['cellular-data'].carrier;
         const radio = $network['cellular-data'].radio;
         if ($network.wifi?.ssid == null && radio) {
+            /*
             cellularInfo = carrierNames[carrierId] ?
                 `${carrierNames[carrierId]} | ${radioGeneration[radio]} - ${radio} ` :
+                `行動數據 | ${radioGeneration[radio]} - ${radio}`;
+                */
+            cellularInfo = 
                 `行動數據 | ${radioGeneration[radio]} - ${radio}`;
         }
     }
